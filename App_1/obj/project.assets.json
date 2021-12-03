@@ -1,11 +1,52 @@
 {
   "version": 3,
   "targets": {
-    "net5.0-windows7.0": {}
+    "net5.0-windows7.0": {
+      "Helper/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Helper.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Helper.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "PluginInterface/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/PluginInterface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PluginInterface.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Helper/1.0.0": {
+      "type": "project",
+      "path": "../MasterApp/Helper/Helper.csproj",
+      "msbuildProject": "../MasterApp/Helper/Helper.csproj"
+    },
+    "PluginInterface/1.0.0": {
+      "type": "project",
+      "path": "../PluginInterface/PluginInterface.csproj",
+      "msbuildProject": "../PluginInterface/PluginInterface.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net5.0-windows7.0": []
+    "net5.0-windows7.0": [
+      "Helper >= 1.0.0",
+      "PluginInterface >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\mbaryla\\.nuget\\packages\\": {},
@@ -41,7 +82,14 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\MasterApp\\Helper\\Helper.csproj": {
+              "projectPath": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\MasterApp\\Helper\\Helper.csproj"
+            },
+            "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\PluginInterface\\PluginInterface.csproj": {
+              "projectPath": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\PluginInterface\\PluginInterface.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

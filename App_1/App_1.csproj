@@ -3,6 +3,22 @@
   <PropertyGroup>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <Product>Calci</Product>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>D:\SOURCE\_MySource\[PLATFORM] .NET 5.0\[PROJECTS] WPF\_MasterApp\Plugins\Regular</OutputPath>
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MasterApp\Helper\Helper.csproj" />
+    <ProjectReference Include="..\PluginInterface\PluginInterface.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Regular\Model\" />
+    <Folder Include="Trigonometry\Model\" />
+  </ItemGroup>
 
 </Project>
