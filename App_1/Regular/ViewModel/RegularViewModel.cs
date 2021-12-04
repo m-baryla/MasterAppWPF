@@ -1,65 +1,67 @@
-﻿using System.Windows;
+﻿using System.Globalization;
+using System.Windows;
 using System.Windows.Input;
-using Helper;
+using App_1.Regular.Model;
+using HelperClass;
 
 namespace App_1.Regular.ViewModel
 {
-    public class RegularViewModel : VMBase
+    public class RegularViewModel : ViewModelBase
     {
-        private float x;
+        private readonly RegularModel _regularModel;
+
         public float X
         {
-            get { return x; }
-            set { if (x == value) return; x = value; RaisePropertyChanged("X"); }
+            get { return _regularModel.x; }
+            set { if (_regularModel.x == value) return; _regularModel.x = value; OnPropertyChanged("X"); }
         }
-        private float y;
         public float Y
         {
-            get { return y; }
-            set { if (y == value) return; y = value; RaisePropertyChanged("Y"); }
+            get { return _regularModel.y; }
+            set { if (_regularModel.y == value) return; _regularModel.y = value; OnPropertyChanged("Y"); }
         }
-        private float result;
         public float Result
         {
-            get { return result; }
-            set { if (result == value) return; result = value; RaisePropertyChanged("Result"); }
+            get { return _regularModel.result; }
+            set { if (_regularModel.result == value) return; _regularModel.result = value; OnPropertyChanged("Result"); }
         }
 
-        public ICommand Add { get; set; }
-        public ICommand Substract { get; set; }
-        public ICommand Multiply { get; set; }
-        public ICommand Divide { get; set; }
-
-        public RegularViewModel()
+        public ICommand AddCommand { get; set; }
+        public ICommand SubstractCommand { get; set; }
+        public ICommand MultiplyCommand { get; set; }
+        public ICommand DivideCommand { get; set; }
+        
+        public RegularViewModel(RegularModel regularModel)
         {
-            Add = new RelayCommand(_ => _Add());
-            Substract = new RelayCommand(_ => _Substract());
-            Multiply = new RelayCommand(_ => _Multiply());
-            Divide = new RelayCommand(_ => _Divide());
+            AddCommand = new RelayCommand(_ => _Add());
+            SubstractCommand = new RelayCommand(_ => _Substract());
+            MultiplyCommand = new RelayCommand(_ => _Multiply());
+            DivideCommand = new RelayCommand(_ => _Divide());
+            this._regularModel = regularModel;
         }
 
         private void _Add()
         {
             Result = X + Y;
-            MessageBox.Show(Result.ToString());
+            _ = MessageBox.Show(Result.ToString(CultureInfo.InvariantCulture));
         }
 
         private void _Substract()
         {
             Result = X - Y;
-            MessageBox.Show(Result.ToString());
+            _ = MessageBox.Show(Result.ToString(CultureInfo.InvariantCulture));
         }
 
         private void _Multiply()
         {
             Result = X * Y;   
-            MessageBox.Show(Result.ToString());
+            MessageBox.Show(Result.ToString(CultureInfo.InvariantCulture));
         }
 
         private void _Divide()
         {
             Result = X / Y;
-            MessageBox.Show(Result.ToString());
+            _ = MessageBox.Show(Result.ToString(CultureInfo.InvariantCulture));
         }
     }
 }

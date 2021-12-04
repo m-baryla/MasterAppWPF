@@ -8,16 +8,16 @@
     ".NETCoreApp,Version=v5.0": {
       "App_1/1.0.0": {
         "dependencies": {
-          "Helper": "1.0.0",
+          "HelperClass": "1.0.0",
           "PluginInterface": "1.0.0"
         },
         "runtime": {
           "App_1.dll": {}
         }
       },
-      "Helper/1.0.0": {
+      "HelperClass/1.0.0": {
         "runtime": {
-          "Helper.dll": {}
+          "HelperClass.dll": {}
         }
       },
       "PluginInterface/1.0.0": {
@@ -33,7 +33,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Helper/1.0.0": {
+    "HelperClass/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

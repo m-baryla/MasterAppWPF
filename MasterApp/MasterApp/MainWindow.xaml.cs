@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using HelperClass;
 using PluginInterface;
 
 namespace MasterApp
@@ -11,8 +12,8 @@ namespace MasterApp
         public MainWindow()
         {
             InitializeComponent();
-            AvailablePlugin aa = new AvailablePlugin();
-            aa.LoadView(tabPlugs);
+            AvailablePlugin availablePlugin = new AvailablePlugin();
+            availablePlugin.LoadView(tabPlugs,Config.GetDllPath());
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)

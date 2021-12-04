@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -14,7 +12,7 @@ namespace PluginInterface
     {
         private string GetPluggerDll(string connect)
         {
-            var files = Directory.GetFiles(connect, "*.dll");
+            var files = Directory.GetFiles(connect + @"\net5.0-windows", "*.dll");
             foreach (var file in files)
             {
                 var productName = FileVersionInfo.GetVersionInfo(file).ProductName;
@@ -58,11 +56,12 @@ namespace PluginInterface
         //        MessageBox.Show(ex.Message, "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
         //    }
         //}
-        public void LoadView(TabControl tabPlugs)
+        public void LoadView(TabControl tabPlugs,string path)
         {
             try
             {
-                string plugName = @"D:\SOURCE\_MySource\[PLATFORM] .NET 5.0\[PROJECTS] WPF\_MasterApp\Plugins";
+                //string plugName = @"D:\SOURCE\_MySource\[PLATFORM] .NET 5.0\[PROJECTS] WPF\_MasterApp\Plugins";
+                string plugName = path;
 
                 var connectors = Directory.GetDirectories(plugName);
                 foreach (var connect in connectors)

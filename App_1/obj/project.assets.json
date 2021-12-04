@@ -2,14 +2,14 @@
   "version": 3,
   "targets": {
     "net5.0-windows7.0": {
-      "Helper/1.0.0": {
+      "HelperClass/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "compile": {
-          "bin/placeholder/Helper.dll": {}
+          "bin/placeholder/HelperClass.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Helper.dll": {}
+          "bin/placeholder/HelperClass.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WPF"
@@ -31,10 +31,10 @@
     }
   },
   "libraries": {
-    "Helper/1.0.0": {
+    "HelperClass/1.0.0": {
       "type": "project",
-      "path": "../MasterApp/Helper/Helper.csproj",
-      "msbuildProject": "../MasterApp/Helper/Helper.csproj"
+      "path": "../HelperClass/HelperClass.csproj",
+      "msbuildProject": "../HelperClass/HelperClass.csproj"
     },
     "PluginInterface/1.0.0": {
       "type": "project",
@@ -44,7 +44,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
-      "Helper >= 1.0.0",
+      "HelperClass >= 1.0.0",
       "PluginInterface >= 1.0.0"
     ]
   },
@@ -83,8 +83,8 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\MasterApp\\Helper\\Helper.csproj": {
-              "projectPath": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\MasterApp\\Helper\\Helper.csproj"
+            "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\HelperClass\\HelperClass.csproj": {
+              "projectPath": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\HelperClass\\HelperClass.csproj"
             },
             "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\PluginInterface\\PluginInterface.csproj": {
               "projectPath": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\PluginInterface\\PluginInterface.csproj"

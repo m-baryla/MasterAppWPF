@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\HelperClass\HelperClass.csproj" />
     <ProjectReference Include="..\..\PluginInterface\PluginInterface.csproj" />
-    <ProjectReference Include="..\Helper\Helper.csproj" />
   </ItemGroup>
 
 </Project>

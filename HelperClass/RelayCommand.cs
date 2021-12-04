@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Windows.Input;
 
-namespace Helper
+namespace HelperClass
 {
     public class RelayCommand : ICommand
     {

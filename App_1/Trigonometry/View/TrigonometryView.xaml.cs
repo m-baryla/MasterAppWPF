@@ -1,7 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using System.Windows.Controls;
 using System.Windows.Input;
-using App_1.Trigonometry.ViewModel;
 
 namespace App_1.Trigonometry.View
 {

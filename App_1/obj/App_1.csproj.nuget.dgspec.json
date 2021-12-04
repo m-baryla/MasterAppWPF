@@ -34,8 +34,8 @@
           "net5.0-windows7.0": {
             "targetAlias": "net5.0-windows",
             "projectReferences": {
-              "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\MasterApp\\Helper\\Helper.csproj": {
-                "projectPath": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\MasterApp\\Helper\\Helper.csproj"
+              "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\HelperClass\\HelperClass.csproj": {
+                "projectPath": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\HelperClass\\HelperClass.csproj"
               },
               "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\PluginInterface\\PluginInterface.csproj": {
                 "projectPath": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\PluginInterface\\PluginInterface.csproj"
@@ -74,14 +74,14 @@
         }
       }
     },
-    "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\MasterApp\\Helper\\Helper.csproj": {
+    "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\HelperClass\\HelperClass.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\MasterApp\\Helper\\Helper.csproj",
-        "projectName": "Helper",
-        "projectPath": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\MasterApp\\Helper\\Helper.csproj",
+        "projectUniqueName": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\HelperClass\\HelperClass.csproj",
+        "projectName": "HelperClass",
+        "projectPath": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\HelperClass\\HelperClass.csproj",
         "packagesPath": "C:\\Users\\mbaryla\\.nuget\\packages\\",
-        "outputPath": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\MasterApp\\Helper\\obj\\",
+        "outputPath": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\HelperClass\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

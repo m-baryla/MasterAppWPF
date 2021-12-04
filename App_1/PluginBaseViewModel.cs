@@ -1,42 +1,40 @@
 ﻿using System.Windows.Controls;
 using System.Windows.Input;
+using App_1.Regular.Model;
 using App_1.Regular.View;
 using App_1.Regular.ViewModel;
 using App_1.Trigonometry.View;
 using App_1.Trigonometry.ViewModel;
-using Helper;
+using HelperClass;
 
 namespace App_1
 {
-    public class PluginBaseViewModel : VMBase
+    public class PluginBaseViewModel : ViewModelBase
     {
-        private ContentControl _customContentControl;
-        //public ContentControl CustomContentControl
-        //{
-        //    get { return _customContentControl; }
-        //    set { if (_customContentControl == value) return; _customContentControl = value; RaisePropertyChanged("CustomContentControl"); }
-        //}
-        public ICommand RegularCommand { get; set; }
-        public ICommand TrigonometryCommand { get; set; }
+        private readonly ContentControl _cc;
+        public ICommand RegularCommandLoad { get; set; }
+        public ICommand TrigonometryCommandLoad { get; set; }
 
         public PluginBaseViewModel(ContentControl cc)
         {
-            RegularCommand = new RelayCommand(_=>_RegularCommand());
-            TrigonometryCommand = new RelayCommand(_ => _TrigonometryCommand());
-            this._customContentControl = cc;
+            RegularCommandLoad = new RelayCommand(_ => _RegularCommandLoad());
+            TrigonometryCommandLoad = new RelayCommand(_ => _TrigonometryCommandLoad());
+            _cc = cc;
         }
-        private void _RegularCommand()
+        private void _RegularCommandLoad()
         {
             var userControls = new RegularView();
-            _customContentControl.Content = userControls.Content;
-            _customContentControl.DataContext = new RegularViewModel();
+            _cc.Content = userControls.Content;
+            _cc.DataContext = new RegularViewModel(new RegularModel() { x = 9, y = 9, result = 9 });
         }
 
-        private void _TrigonometryCommand()
+        private void _TrigonometryCommandLoad()
         {
             var userControls = new TrigonometryView();
-            _customContentControl.Content = userControls.Content;
-            _customContentControl.DataContext = new TrigonometryViewModel();
+            _cc.Content = userControls.Content;
+            _cc.DataContext = new TrigonometryViewModel();
         }
     }
 }
+
+
