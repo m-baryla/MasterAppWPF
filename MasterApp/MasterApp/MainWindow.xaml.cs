@@ -15,10 +15,5 @@ namespace MasterApp
             AvailablePlugin availablePlugin = new AvailablePlugin();
             availablePlugin.LoadView(tabPlugs,Config.GetDllPath());
         }
-
-        private void BtnClose_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
     }
 }

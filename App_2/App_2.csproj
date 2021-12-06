@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Product>Calci</Product>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>D:\SOURCE\_MySource\[PLATFORM] .NET 5.0\[PROJECTS] WPF\_MasterApp\MasterApp\Plugins\App2\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="T_2\Model\" />
+    <Folder Include="T_2\ViewModel\" />
+    <Folder Include="T_2\View\" />
+    <Folder Include="T_1\View\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HelperClass\HelperClass.csproj" />
+    <ProjectReference Include="..\PluginInterface\PluginInterface.csproj" />
+  </ItemGroup>
+
+</Project>
