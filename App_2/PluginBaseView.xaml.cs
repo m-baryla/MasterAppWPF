@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using App_2.T_1.Model;
 using App_2.T_1.ViewModel;
+using App_2.T_2.ViewModel;
 using PluginInterface;
 
 namespace App_2
@@ -28,7 +29,7 @@ namespace App_2
             InitializeComponent();
             DataContext = new PluginBaseViewModel(CustomContentControl);
 
-
+            // ValueT1ViewModel
             var aa = new ValueT1ViewModel();
 
             //aa.GetValueT1Model_DataTable();
@@ -52,10 +53,10 @@ namespace App_2
             //
             //aa.GetValueT1ModelLabel_v2();
             //
-           // ValueT1Model valueT1Model = new ValueT1Model();
-           // valueT1Model.DateTimeValue = DateTime.Parse("2021-11-01 00:00:00.000");
-           // valueT1Model.DoubleVaule = 0.1;
-           // aa.ModValueT1ModelWithOutParametr("TEST", valueT1Model);
+            // ValueT1Model valueT1Model = new ValueT1Model();
+            // valueT1Model.DateTimeValue = DateTime.Parse("2021-11-01 00:00:00.000");
+            // valueT1Model.DoubleVaule = 0.1;
+            // aa.ModValueT1ModelWithOutParametr("TEST", valueT1Model);
             //
             //aa.GetValueT1Model_Dictionary();
             //
@@ -73,7 +74,18 @@ namespace App_2
             //
             //aa.GetValueT1Model_OneRow(10);
             //
-            aa.ModValueT1ModelParametersOneRow(5, "MBA");
+            //aa.ModValueT1ModelParametersOneRow(5, "MBA");
+
+
+            //ValueT2ViewModel
+            var bb = new ValueT2ViewModel();
+            //bb.GetValueT2Model_DataTable();
+            //bb.GetValueT2Model_DataTable_WithParametr(0.1);
+            //bb.GetValueT2Model_DataTable_FromView();
+            var result = new Result1();
+            result.IntValue = 3;
+            result.StringValue = "zzz";
+            bb.SetValueT2Model(result);
         }
         public string PluggerName { get; set; } = "PluginBaseApp2";
         public UserControl GetPlugger() => this;

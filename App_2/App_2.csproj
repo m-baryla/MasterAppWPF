@@ -11,8 +11,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="T_2\Model\" />
-    <Folder Include="T_2\ViewModel\" />
     <Folder Include="T_2\View\" />
     <Folder Include="T_1\View\" />
   </ItemGroup>
