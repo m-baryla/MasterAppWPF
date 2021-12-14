@@ -4,17 +4,21 @@ using System.Data;
 using System.Linq;
 using System.Windows;
 using App_2.T_1.Model;
-using HelperClass;
+using Interface;
 
 namespace App_2.T_1.ViewModel
 {
-    public class ValueT1ViewModel 
-    { 
-        private SQL_Service_DataRowTable _sqlServiceDataRowTable = new SQL_Service_DataRowTable();
+    public class ValueT1ViewModel
+    {
+        private ISQL _sql;
+        public ValueT1ViewModel(ISQL _sql)
+        {
+            this._sql = _sql;
+        }
         public List<ValueT1Model> GetValueT1Model_DataTable()
         {
             List<ValueT1Model> logs = new List<ValueT1Model>();
-            var dt = _sqlServiceDataRowTable.ExecuteSqlProcedureTable("[SQL_].[GetValueT1Model_DataTable]");
+            var dt = _sql.ExecuteSqlProcedureTable("[SQL_].[GetValueT1Model_DataTable]");
             foreach (DataRow row in dt.Rows)
                 logs.Add(new ValueT1Model(row));
             return logs;
@@ -22,21 +26,21 @@ namespace App_2.T_1.ViewModel
         public List<string> GetValueT1Model_DataTable_WithParametr(int IntValue)
         {
             List<string> logs = new List<string>();
-            var dt = _sqlServiceDataRowTable.ExecuteSqlProcedureTable("[SQL_].[GetValueT1Model_DataTable_WithParametr]", new Parameter("@IntValue", IntValue));
+            var dt = _sql.ExecuteSqlProcedureTable("[SQL_].[GetValueT1Model_DataTable_WithParametr]", new Parameter("@IntValue", IntValue));
             foreach (DataRow row in dt.Rows)
                 logs.Add(row["StringValue"].ToString());
             return logs;
         }
         public ValueT1Model GetValueT1Model_DataTable_SingleRow(string StringValue)
         {
-            var tb = _sqlServiceDataRowTable.ExecuteSqlProcedureTable("[SQL_].[GetValueT1Model_DataTable_SingleRow]", new Parameter("@StringValue", StringValue));
+            var tb = _sql.ExecuteSqlProcedureTable("[SQL_].[GetValueT1Model_DataTable_SingleRow]", new Parameter("@StringValue", StringValue));
             if (tb.Rows.Count < 1)
                 return new ValueT1Model();
             return new ValueT1Model(tb.Rows[0]);
         }
         public string GetValueT1ModelLabel()
         {
-            var tb = _sqlServiceDataRowTable.ExecuteSqlProcedureSingleRow("[SQL_].[GetValueT1ModelLabel]");
+            var tb = _sql.ExecuteSqlProcedureSingleRow("[SQL_].[GetValueT1ModelLabel]");
             var result =  tb[0].ToString();
             return result;
         }
@@ -55,7 +59,7 @@ namespace App_2.T_1.ViewModel
             par.Add(new Parameter("@DateTimeValue", item.DateTimeValue));
             par.Add(new Parameter("@IntValue", item.IntValue));
 
-            var ret = _sqlServiceDataRowTable.ExecuteModData("[SQL_CRUD].[ModValueT1Model]", out Msg, par);
+            var ret = _sql.ExecuteModData("[SQL_CRUD].[ModValueT1Model]", out Msg, par);
             MessageBox.Show(Msg + ret.ToString());
             return ret >= 0;
         }
@@ -73,21 +77,21 @@ namespace App_2.T_1.ViewModel
             par.Add(new Parameter("@IntValue", IntValue));
             par.Add(new Parameter("@StringValue", item.StringValue));
 
-            var ret = _sqlServiceDataRowTable.ExecuteModData("[SQL_CRUD].[ModDeleteValueT1Model]", out Msg, par);
+            var ret = _sql.ExecuteModData("[SQL_CRUD].[ModDeleteValueT1Model]", out Msg, par);
             MessageBox.Show(Msg + ret.ToString());
             return ret == 0;
         }
         public ValueT1Model[] GetValueT1ModelWithParametr(int IntValue)
         {
             List<ValueT1Model> list = new List<ValueT1Model>();
-            var dt = _sqlServiceDataRowTable.ExecuteSqlProcedureTable("[SQL_].[GetValueT1ModelWithParametr]", new Parameter("@IntValue", IntValue));
+            var dt = _sql.ExecuteSqlProcedureTable("[SQL_].[GetValueT1ModelWithParametr]", new Parameter("@IntValue", IntValue));
             foreach (DataRow row in dt.Rows)
                 list.Add(new ValueT1Model(row));
             return list.ToArray();
         }
         public string GetValueT1ModelLabel_v2()
         {
-            var result = _sqlServiceDataRowTable.ExecuteSqlProcedureSingleRow("[SQL_].[GetValueT1ModelLabel]")["LABELTest"].ToString();
+            var result = _sql.ExecuteSqlProcedureSingleRow("[SQL_].[GetValueT1ModelLabel]")["LABELTest"].ToString();
             return result;
         }
         public void ModValueT1ModelWithOutParametr(string StringValue, ValueT1Model item)
@@ -104,12 +108,12 @@ namespace App_2.T_1.ViewModel
             IEnumerable<Parameter> ie = par;
             IEnumerable<Parameter> ieO = parO;
 
-            var ret = _sqlServiceDataRowTable.ExecuteModData("[SQL_CRUD].[ModValueT1ModelWithOutParametr]", out Msg, ref ieO, ie);
+            var ret = _sql.ExecuteModData("[SQL_CRUD].[ModValueT1ModelWithOutParametr]", out Msg, ref ieO, ie);
             MessageBox.Show(Msg + ret.ToString());
         }
         public Dictionary<int, string> GetValueT1Model_Dictionary()
         {
-            var result = _sqlServiceDataRowTable.ExecuteSqlProcedureDictionary("[SQL_].[GetValueT1Model_Dictionary]");
+            var result = _sql.ExecuteSqlProcedureDictionary("[SQL_].[GetValueT1Model_Dictionary]");
             return result;
         }
         public bool ModValueT1ModelAddTable(ValueT1Model mo, List<ValueT1Model> qtys, out List<ValueT1Model> cvs)
@@ -138,7 +142,7 @@ namespace App_2.T_1.ViewModel
                 new Parameter("@ReturnCode", null)
             };
 
-            var ret = _sqlServiceDataRowTable.ExecuteModDataTable("[SQL_CRUD].[ModValueT1ModelAddTable]", ref parO, par);
+            var ret = _sql.ExecuteModDataTable("[SQL_CRUD].[ModValueT1ModelAddTable]", ref parO, par);
             var intRet = int.Parse(parO.Where(x => x.Name == "@ReturnCode").First().Value.ToString());
             var strOut = parO.Where(x => x.Name == "@UserMsg").First().Value.ToString();
 
@@ -159,7 +163,7 @@ namespace App_2.T_1.ViewModel
                 new Parameter("@DoubleVaule", DoubleVaule),
             };
 
-            var ret = _sqlServiceDataRowTable.ExecuteModData("[SQL_CRUD].[ModValueT1ModelParameters]", out Msg, par);
+            var ret = _sql.ExecuteModData("[SQL_CRUD].[ModValueT1ModelParameters]", out Msg, par);
             MessageBox.Show(Msg + ret.ToString());
         }
         public  ValueT1Model GetValueT1Model_OneRow(int IntValue)
@@ -175,7 +179,7 @@ namespace App_2.T_1.ViewModel
             IEnumerable<Parameter> ListIE = List;
             IEnumerable<Parameter> outListIE = outList;
 
-            var dt = _sqlServiceDataRowTable.ExecuteSqlProcedureTable("[SQL_].[GetValueT1Model_OneRow]", ref outListIE, ListIE,null);
+            var dt = _sql.ExecuteSqlProcedureTable("[SQL_].[GetValueT1Model_OneRow]", ref outListIE, ListIE,null);
 
             Msg = outListIE.Where(x => x.Name == "@UserMsg").First().Value.ToString();
             if (!string.IsNullOrWhiteSpace(Msg))
@@ -186,7 +190,7 @@ namespace App_2.T_1.ViewModel
         public bool ModValueT1ModelParametersOneRow(int IntValue, string StringValue)
         {
             string Msg;
-            var ret = _sqlServiceDataRowTable.ExecuteModData("[SQL_CRUD].[ModValueT1ModelParametersOneRow]", out Msg, new Parameter("@IntValue", IntValue), new Parameter("@StringValue", StringValue));
+            var ret = _sql.ExecuteModData("[SQL_CRUD].[ModValueT1ModelParametersOneRow]", out Msg, new Parameter("@IntValue", IntValue), new Parameter("@StringValue", StringValue));
             MessageBox.Show(Msg + ret);
             return ret >= 0;
         }

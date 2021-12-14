@@ -1,5 +1,6 @@
-﻿using System.Windows;
-using HelperClass;
+﻿using System.Configuration;
+using System.IO;
+using System.Windows;
 using PluginInterface;
 
 namespace MasterApp
@@ -12,8 +13,7 @@ namespace MasterApp
         public MainWindow()
         {
             InitializeComponent();
-            AvailablePlugin availablePlugin = new AvailablePlugin();
-            availablePlugin.LoadView(tabPlugs,Config.GetDllPath());
+            HelperClass.InitPlugins.Init(tabPlugs);
         }
     }
 }

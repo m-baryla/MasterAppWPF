@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using Interface;
 using PluginInterface;
 
 namespace App_1

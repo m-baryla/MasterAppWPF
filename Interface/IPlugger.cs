@@ -1,6 +1,6 @@
 using System.Windows.Controls;
 
-namespace PluginInterface
+namespace Interface
 {
     public interface IPlugger
     {

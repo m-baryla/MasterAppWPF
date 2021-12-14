@@ -1,15 +1,16 @@
-﻿using System;
+﻿using HelperClass;
+using Interface;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 
-namespace HelperClass
+namespace SQLService
 {
-    public class SQL_Service_DataRowTable
+    public class SQL : ISQL
     {
-        private string _sqlConnectionString = Config.GetSqlConnectionString();
-
+        private string _sqlConnectionString = GetConfig.GetSqlConnectionString();
         public DataRow ExecuteSqlProcedureSingleRow(string procedureName, IEnumerable<Parameter> procedureParameters, int? timeoutInSeconds)
         {
             DataTable dataTable = this.ExecuteSqlProcedureTable(procedureName, procedureParameters, timeoutInSeconds);
@@ -384,7 +385,6 @@ namespace HelperClass
             return dataTable;
         }
 
-
         //private bool CheckGroupMembership(string userID, string groupName)
         //{
         //    PrincipalContext context = new PrincipalContext(ContextType.Domain);
@@ -413,19 +413,5 @@ namespace HelperClass
         //    WindowsIdentity current = WindowsIdentity.GetCurrent();
         //    return current != null && (new WindowsPrincipal(current).IsInRole(groupName) || this.CheckGroupMembership(current.Name, groupName));
         //}
-    }
-    public class Parameter
-    {
-        public string Name { get; }
-
-        public object Value { get; set; }
-
-        public Parameter(string name, object value)
-        {
-            this.Name = name;
-            this.Value = value;
-        }
-
-        public override string ToString() => string.Format("{0}: {1}", (object)this.Name, this.Value);
     }
 }

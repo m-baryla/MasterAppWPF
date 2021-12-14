@@ -3,22 +3,19 @@
   <PropertyGroup>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
-    <Product>Calci</Product>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>D:\SOURCE\_MySource\[PLATFORM] .NET 5.0\[PROJECTS] WPF\_MasterApp\MasterApp\Plugins\App2\</OutputPath>
+    <OutputPath></OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="T_2\View\" />
-    <Folder Include="T_1\View\" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\HelperClass\HelperClass.csproj" />
     <ProjectReference Include="..\Interface\Interface.csproj" />
-    <ProjectReference Include="..\PluginInterface\PluginInterface.csproj" />
   </ItemGroup>
 
 </Project>

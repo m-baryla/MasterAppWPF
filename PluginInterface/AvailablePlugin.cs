@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Interface;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -60,7 +61,6 @@ namespace PluginInterface
         {
             try
             {
-                //string plugName = @"D:\SOURCE\_MySource\[PLATFORM] .NET 5.0\[PROJECTS] WPF\_MasterApp\Plugins";
                 string plugName = path;
 
                 var connectors = Directory.GetDirectories(plugName);

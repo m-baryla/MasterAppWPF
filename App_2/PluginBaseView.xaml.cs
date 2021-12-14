@@ -1,21 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using App_2.T_1.Model;
+﻿using System.Windows.Controls;
 using App_2.T_1.ViewModel;
-using App_2.T_2.ViewModel;
-using PluginInterface;
+using HelperClass;
+using Interface;
 
 namespace App_2
 {
@@ -29,10 +15,13 @@ namespace App_2
             InitializeComponent();
             DataContext = new PluginBaseViewModel(CustomContentControl);
 
-            // ValueT1ViewModel
-            var aa = new ValueT1ViewModel();
+            var sqlDynamicDLL = ModuleLoader.LoadHelperSQL<ISQL>(GetConfig.GetDllPath("dllsSQL"), null);
 
-            //aa.GetValueT1Model_DataTable();
+            var aa = new ValueT1ViewModel(sqlDynamicDLL);
+            aa.GetValueT1Model_DataTable();
+
+            #region test
+
             //
             //aa.GetValueT1Model_DataTable_WithParametr(1);
             //
@@ -78,16 +67,15 @@ namespace App_2
 
 
             //ValueT2ViewModel
-            var bb = new ValueT2ViewModel();
-            //bb.GetValueT2Model_DataTable();
-            //bb.GetValueT2Model_DataTable_WithParametr(0.1);
-            //bb.GetValueT2Model_DataTable_FromView();
-            var result = new Result1();
-            result.IntValue = 3;
-            result.StringValue = "zzz";
-            bb.SetValueT2Model(result);
+            //var bb = new ValueT2ViewModel();
+
+            #endregion
+
         }
         public string PluggerName { get; set; } = "PluginBaseApp2";
         public UserControl GetPlugger() => this;
     }
 }
+
+
+

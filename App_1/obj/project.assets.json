@@ -135,6 +135,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "Interface": "1.0.0",
+          "PluginInterface": "1.0.0",
           "System.Data.SqlClient": "4.8.3"
         },
         "compile": {
@@ -147,9 +149,25 @@
           "Microsoft.WindowsDesktop.App.WPF"
         ]
       },
+      "Interface/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Interface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Interface.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
       "PluginInterface/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Interface": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/PluginInterface.dll": {}
         },
@@ -480,6 +498,11 @@
       "type": "project",
       "path": "../HelperClass/HelperClass.csproj",
       "msbuildProject": "../HelperClass/HelperClass.csproj"
+    },
+    "Interface/1.0.0": {
+      "type": "project",
+      "path": "../Interface/Interface.csproj",
+      "msbuildProject": "../Interface/Interface.csproj"
     },
     "PluginInterface/1.0.0": {
       "type": "project",
