@@ -12,8 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HelperClass\HelperClass.csproj" />
-    <ProjectReference Include="..\PluginInterface\PluginInterface.csproj" />
+    <ProjectReference Include="..\BaseAppClass\BaseAppClass.csproj" />
   </ItemGroup>
 
   <ItemGroup>

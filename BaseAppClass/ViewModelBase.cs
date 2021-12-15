@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace HelperClass
+namespace BaseAppClass
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {

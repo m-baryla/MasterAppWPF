@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Input;
 using App_1.Regular.Model;
-using HelperClass;
+using BaseAppClass;
 
 namespace App_1.Regular.ViewModel
 {

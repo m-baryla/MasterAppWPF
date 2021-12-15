@@ -131,19 +131,17 @@
           }
         }
       },
-      "HelperClass/1.0.0": {
+      "BaseAppClass/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "Interface": "1.0.0",
-          "PluginInterface": "1.0.0",
-          "System.Data.SqlClient": "4.8.3"
+          "PluginInterface": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/HelperClass.dll": {}
+          "bin/placeholder/BaseAppClass.dll": {}
         },
         "runtime": {
-          "bin/placeholder/HelperClass.dll": {}
+          "bin/placeholder/BaseAppClass.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WPF"
@@ -494,10 +492,10 @@
         "version.txt"
       ]
     },
-    "HelperClass/1.0.0": {
+    "BaseAppClass/1.0.0": {
       "type": "project",
-      "path": "../../HelperClass/HelperClass.csproj",
-      "msbuildProject": "../../HelperClass/HelperClass.csproj"
+      "path": "../../BaseAppClass/BaseAppClass.csproj",
+      "msbuildProject": "../../BaseAppClass/BaseAppClass.csproj"
     },
     "Interface/1.0.0": {
       "type": "project",
@@ -512,9 +510,8 @@
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
-      "HelperClass >= 1.0.0",
-      "Interface >= 1.0.0",
-      "PluginInterface >= 1.0.0"
+      "BaseAppClass >= 1.0.0",
+      "System.Data.SqlClient >= 4.8.3"
     ]
   },
   "packageFolders": {
@@ -552,14 +549,8 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\HelperClass\\HelperClass.csproj": {
-              "projectPath": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\HelperClass\\HelperClass.csproj"
-            },
-            "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\Interface\\Interface.csproj": {
-              "projectPath": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\Interface\\Interface.csproj"
-            },
-            "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\PluginInterface\\PluginInterface.csproj": {
-              "projectPath": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\PluginInterface\\PluginInterface.csproj"
+            "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\BaseAppClass\\BaseAppClass.csproj": {
+              "projectPath": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\BaseAppClass\\BaseAppClass.csproj"
             }
           }
         }
@@ -573,6 +564,12 @@
     "frameworks": {
       "net5.0-windows7.0": {
         "targetAlias": "net5.0-windows",
+        "dependencies": {
+          "System.Data.SqlClient": {
+            "target": "Package",
+            "version": "[4.8.3, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

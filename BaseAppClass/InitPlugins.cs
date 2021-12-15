@@ -1,7 +1,7 @@
 ﻿using PluginInterface;
 using System.Windows.Controls;
 
-namespace HelperClass
+namespace BaseAppClass
 {
     public static class InitPlugins
     {

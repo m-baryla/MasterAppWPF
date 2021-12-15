@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data;
-using HelperClass;
+using BaseAppClass;
 
 namespace App_2.T_1.Model
 {

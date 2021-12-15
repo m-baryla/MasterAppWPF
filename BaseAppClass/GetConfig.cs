@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
 using System.IO;
 
-namespace HelperClass
+namespace BaseAppClass
 {
     public static class GetConfig
     {

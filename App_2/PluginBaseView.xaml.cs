@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 using App_2.T_1.ViewModel;
-using HelperClass;
+using BaseAppClass;
 using Interface;
 
 namespace App_2

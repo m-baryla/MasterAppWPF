@@ -5,7 +5,7 @@ using App_1.Regular.View;
 using App_1.Regular.ViewModel;
 using App_1.Trigonometry.View;
 using App_1.Trigonometry.ViewModel;
-using HelperClass;
+using BaseAppClass;
 
 namespace App_1
 {

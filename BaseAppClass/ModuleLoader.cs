@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace HelperClass
+namespace BaseAppClass
 {
     public static class ModuleLoader
     {
