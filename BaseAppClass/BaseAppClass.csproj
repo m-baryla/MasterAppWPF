@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PluginInterface\PluginInterface.csproj" />
+    <ProjectReference Include="..\Interface\Interface.csproj" />
   </ItemGroup>
 
 </Project>

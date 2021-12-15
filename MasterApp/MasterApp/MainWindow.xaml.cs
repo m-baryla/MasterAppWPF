@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
 using System.IO;
 using System.Windows;
-using PluginInterface;
+using BaseAppClass;
 
 namespace MasterApp
 {
@@ -13,7 +13,7 @@ namespace MasterApp
         public MainWindow()
         {
             InitializeComponent();
-            BaseAppClass.InitPlugins.Init(tabPlugs);
+            InitPlugins.Init(tabPlugs);
         }
     }
 }

@@ -135,7 +135,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "PluginInterface": "1.0.0"
+          "Interface": "1.0.0"
         },
         "compile": {
           "bin/placeholder/BaseAppClass.dll": {}
@@ -155,22 +155,6 @@
         },
         "runtime": {
           "bin/placeholder/Interface.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App.WPF"
-        ]
-      },
-      "PluginInterface/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "Interface": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/PluginInterface.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/PluginInterface.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WPF"
@@ -501,11 +485,6 @@
       "type": "project",
       "path": "../../Interface/Interface.csproj",
       "msbuildProject": "../../Interface/Interface.csproj"
-    },
-    "PluginInterface/1.0.0": {
-      "type": "project",
-      "path": "../../PluginInterface/PluginInterface.csproj",
-      "msbuildProject": "../../PluginInterface/PluginInterface.csproj"
     }
   },
   "projectFileDependencyGroups": {

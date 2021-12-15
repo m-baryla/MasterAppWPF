@@ -9,7 +9,8 @@ namespace BaseAppClass
 {
     public static class ModuleLoader
     {
-        public static T LoadHelperSQL<T>(string pathToFile, params object[] args) where T : ISQL => ModuleLoader.PrivateLoad<T>(pathToFile, args);
+        public static T LoadPlugger<T>(string pathToFile, params object[] args) where T : IPlugger => PrivateLoad<T>(pathToFile, args);
+        public static T LoadHelperSQL<T>(string pathToFile, params object[] args) where T : ISQL => PrivateLoad<T>(pathToFile, args);
         private static T PrivateLoad<T>(string pathToFile, object[] args)
         {
             IEnumerable<Type> source = File.Exists(pathToFile) ? ((IEnumerable<Type>)Assembly.Load(File.ReadAllBytes(pathToFile)).GetTypes()).Where<Type>((Func<Type, bool>)(type => typeof(T).IsAssignableFrom(type))) : throw new ArgumentException(pathToFile + " does not exist.");

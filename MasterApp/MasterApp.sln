@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasterApp", "MasterApp\MasterApp.csproj", "{2401ACEE-EC80-4DAF-99AE-685C05391156}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginInterface", "..\PluginInterface\PluginInterface.csproj", "{69BF0DD8-1867-42D8-997A-44FA1167794D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App_1", "..\App_1\App_1.csproj", "{81FEF160-BD05-455E-9CB3-C68E2E22FDBB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App_2", "..\App_2\App_2.csproj", "{AD470176-75A5-4C27-BCB8-C974A18B23B8}"
@@ -27,10 +25,6 @@ Global
 		{2401ACEE-EC80-4DAF-99AE-685C05391156}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2401ACEE-EC80-4DAF-99AE-685C05391156}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2401ACEE-EC80-4DAF-99AE-685C05391156}.Release|Any CPU.Build.0 = Release|Any CPU
-		{69BF0DD8-1867-42D8-997A-44FA1167794D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{69BF0DD8-1867-42D8-997A-44FA1167794D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{69BF0DD8-1867-42D8-997A-44FA1167794D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{69BF0DD8-1867-42D8-997A-44FA1167794D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{81FEF160-BD05-455E-9CB3-C68E2E22FDBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{81FEF160-BD05-455E-9CB3-C68E2E22FDBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81FEF160-BD05-455E-9CB3-C68E2E22FDBB}.Release|Any CPU.ActiveCfg = Release|Any CPU

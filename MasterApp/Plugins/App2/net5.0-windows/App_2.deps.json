@@ -16,7 +16,7 @@
       },
       "BaseAppClass/1.0.0": {
         "dependencies": {
-          "PluginInterface": "1.0.0"
+          "Interface": "1.0.0"
         },
         "runtime": {
           "BaseAppClass.dll": {}
@@ -25,14 +25,6 @@
       "Interface/1.0.0": {
         "runtime": {
           "Interface.dll": {}
-        }
-      },
-      "PluginInterface/1.0.0": {
-        "dependencies": {
-          "Interface": "1.0.0"
-        },
-        "runtime": {
-          "PluginInterface.dll": {}
         }
       }
     }
@@ -49,11 +41,6 @@
       "sha512": ""
     },
     "Interface/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "PluginInterface/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
