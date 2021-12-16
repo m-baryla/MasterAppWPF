@@ -1,4 +1,8 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 using App_1.Regular.Model;
 using App_1.Regular.View;
@@ -12,15 +16,20 @@ namespace App_1
     public class PluginBaseViewModel : ViewModelBase
     {
         private readonly ContentControl _cc;
-        public ICommand RegularCommandLoad { get; set; }
-        public ICommand TrigonometryCommandLoad { get; set; }
-
-        public PluginBaseViewModel(ContentControl cc)
+        private List<Button> buttonsList;
+        public List<Button> ButtonsList
         {
-            RegularCommandLoad = new RelayCommand(_ => _RegularCommandLoad());
-            TrigonometryCommandLoad = new RelayCommand(_ => _TrigonometryCommandLoad());
-            _cc = cc;
+            get { return buttonsList; }
+            set { if (buttonsList == value) return; buttonsList = value; OnPropertyChanged("ButtonsList"); }
         }
+        public PluginBaseViewModel(ContentControl cc, Style ButtonStyle)
+        {
+            _cc = cc;
+            buttonsList = new List<Button>();
+            buttonsList.Add(new Button() { Style = ButtonStyle, Content = "Regular", Command = new RelayCommand(_ => _RegularCommandLoad()) });
+            buttonsList.Add(new Button() { Style = ButtonStyle, Content = "Trigonometry", Command = new RelayCommand(_ => _TrigonometryCommandLoad()) });
+        }
+
         private void _RegularCommandLoad()
         {
             var userControls = new RegularView();

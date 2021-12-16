@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 using Interface;
 
 namespace App_1
@@ -11,9 +12,10 @@ namespace App_1
         public PluginBaseView()
         {
             InitializeComponent();
-            DataContext = new PluginBaseViewModel(CustomContentControl);
+            DataContext = new PluginBaseViewModel(CustomContentControl, Resources["ButtonStyle"] as Style);
         }
         public string PluggerName { get; set; } = "PluginBaseApp1";
         public UserControl GetPlugger() => this;
+
     }
 }

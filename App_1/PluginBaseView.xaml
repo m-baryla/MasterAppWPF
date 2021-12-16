@@ -16,7 +16,7 @@
         <SolidColorBrush x:Key="ContentBackgroundColor" Color="#FFFFFF"></SolidColorBrush>
         <SolidColorBrush x:Key="IcoColor" Color="#4C87B3"></SolidColorBrush>
         <!-- Button Style -->
-        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+        <Style x:Name ="ButtonStyle" x:Key="ButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="Background" Value="Transparent"></Setter>
             <Setter Property="Foreground" Value="{DynamicResource SecondaryTextColor}"></Setter>
             <Setter Property="BorderThickness" Value="0"></Setter>
@@ -71,66 +71,12 @@
         <StackPanel DockPanel.Dock="Left"              
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch">
-            <Button Content="Regular" 
-                    Command="{Binding RegularCommandLoad}"
-                    Style="{DynamicResource ButtonStyle}"/>
-            <Button Content="Trigonometry" 
-                    Command="{Binding TrigonometryCommandLoad}"
-                    Style="{DynamicResource ButtonStyle}"/>
-            <Button Content="Regular" 
-                    Command="{Binding RegularCommandLoad}"
-                    Style="{DynamicResource ButtonStyle}"/>
-            <Button Content="Trigonometry" 
-                    Command="{Binding TrigonometryCommandLoad}"
-                    Style="{DynamicResource ButtonStyle}"/>
-            <Button Content="Regular" 
-                    Command="{Binding RegularCommandLoad}"
-                    Style="{DynamicResource ButtonStyle}"/>
-            <Button Content="Trigonometry" 
-                    Command="{Binding TrigonometryCommandLoad}"
-                    Style="{DynamicResource ButtonStyle}"/>
-            <Button Content="Regular" 
-                    Command="{Binding RegularCommandLoad}"
-                    Style="{DynamicResource ButtonStyle}"/>
-            <Button Content="Trigonometry" 
-                    Command="{Binding TrigonometryCommandLoad}"
-                    Style="{DynamicResource ButtonStyle}"/>
-            <Button Content="Regular" 
-                    Command="{Binding RegularCommandLoad}"
-                    Style="{DynamicResource ButtonStyle}"/>
-            <Button Content="Trigonometry" 
-                    Command="{Binding TrigonometryCommandLoad}"
-                    Style="{DynamicResource ButtonStyle}"/>
-            <Button Content="Regular" 
-                    Command="{Binding RegularCommandLoad}"
-                    Style="{DynamicResource ButtonStyle}"/>
-            <Button Content="Trigonometry" 
-                    Command="{Binding TrigonometryCommandLoad}"
-                    Style="{DynamicResource ButtonStyle}"/>
-            <Button Content="Regular" 
-                    Command="{Binding RegularCommandLoad}"
-                    Style="{DynamicResource ButtonStyle}"/>
-            <Button Content="Trigonometry" 
-                    Command="{Binding TrigonometryCommandLoad}"
-                    Style="{DynamicResource ButtonStyle}"/>
-            <Button Content="Regular" 
-                    Command="{Binding RegularCommandLoad}"
-                    Style="{DynamicResource ButtonStyle}"/>
-            <Button Content="Trigonometry" 
-                    Command="{Binding TrigonometryCommandLoad}"
-                    Style="{DynamicResource ButtonStyle}"/>
-            <Button Content="Regular" 
-                    Command="{Binding RegularCommandLoad}"
-                    Style="{DynamicResource ButtonStyle}"/>
-            <Button Content="Trigonometry" 
-                    Command="{Binding TrigonometryCommandLoad}"
-                    Style="{DynamicResource ButtonStyle}"/>
-            <Button Content="Regular" 
-                    Command="{Binding RegularCommandLoad}"
-                    Style="{DynamicResource ButtonStyle}"/>
-            <Button Content="Trigonometry" 
-                    Command="{Binding TrigonometryCommandLoad}"
-                    Style="{DynamicResource ButtonStyle}"/>
+            <ItemsControl ItemsSource="{Binding ButtonsList}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </StackPanel>
 
         <StackPanel Background="{DynamicResource ContentBackgroundColor}"
