@@ -4,6 +4,8 @@ using System.Drawing;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using Interface;
 
 namespace BaseAppClass
@@ -35,8 +37,7 @@ namespace BaseAppClass
                     TabItem button = new TabItem
                     {
                         Header = pluginDynamicDLL.PluggerName,
-                        Height = 30,
-                        Content = pluginDynamicDLL.GetPlugger()
+                        Content = pluginDynamicDLL.GetPlugger(),
                     };
                     tabPlugs.Items.Add(button);
                 }
