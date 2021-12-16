@@ -24,14 +24,15 @@
         </Grid>
 
         <Grid Grid.Column="0" Grid.Row="1" Margin="25,25,25,25">
-            <TabControl 
-                TabStripPlacement="Left" 
-                Name="tabPlugs" >
+            <TabControl  TabStripPlacement="Left" 
+                         Name="tabPlugs" 
+                         Background="LightBlue">
             </TabControl>
         </Grid>
 
         <Grid Grid.Column="0" Grid.Row="2">
             <Label Content="Label"></Label>
         </Grid>
+
     </Grid>
 </Window>

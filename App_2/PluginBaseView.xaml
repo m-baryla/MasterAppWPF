@@ -8,9 +8,22 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -22,13 +35,86 @@
                 Padding="10" 
                 Margin="10"
                 Command="{Binding RegularCommandLoad}"/>
-
         <Button Grid.Column="1" Grid.Row="0"
                 Content="T2" 
                 Padding="10" 
                 Margin="10"
                 Command="{Binding TrigonometryCommandLoad}"/>
-
+        <Button Grid.Column="2" Grid.Row="0"
+                Content="T3" 
+                Padding="10" 
+                Margin="10"
+                Command="{Binding TrigonometryCommandLoad}"/>
+        <Button Grid.Column="3" Grid.Row="0"
+                Content="T4" 
+                Padding="10" 
+                Margin="10"
+                Command="{Binding TrigonometryCommandLoad}"/>
+        <Button Grid.Column="4" Grid.Row="0"
+                Content="T5" 
+                Padding="10" 
+                Margin="10"
+                Command="{Binding TrigonometryCommandLoad}"/>
+        <Button Grid.Column="5" Grid.Row="0"
+                Content="T6" 
+                Padding="10" 
+                Margin="10"
+                Command="{Binding TrigonometryCommandLoad}"/>
+        <Button Grid.Column="6" Grid.Row="0"
+                Content="T7" 
+                Padding="10" 
+                Margin="10"
+                Command="{Binding TrigonometryCommandLoad}"/>
+        <Button Grid.Column="7" Grid.Row="0"
+                Content="T8" 
+                Padding="10" 
+                Margin="10"
+                Command="{Binding TrigonometryCommandLoad}"/>
+        <Button Grid.Column="7" Grid.Row="0"
+                Content="T9" 
+                Padding="10" 
+                Margin="10"
+                Command="{Binding TrigonometryCommandLoad}"/>
+        <Button Grid.Column="8" Grid.Row="0"
+                Content="T10" 
+                Padding="10" 
+                Margin="10"
+                Command="{Binding TrigonometryCommandLoad}"/>
+        <Button Grid.Column="9" Grid.Row="0"
+                Content="T11" 
+                Padding="10" 
+                Margin="10"
+                Command="{Binding TrigonometryCommandLoad}"/>
+        <Button Grid.Column="10" Grid.Row="0"
+                Content="T12" 
+                Padding="10" 
+                Margin="10"
+                Command="{Binding TrigonometryCommandLoad}"/>
+        <Button Grid.Column="11" Grid.Row="0"
+                Content="T13" 
+                Padding="10" 
+                Margin="10"
+                Command="{Binding TrigonometryCommandLoad}"/>
+        <Button Grid.Column="12" Grid.Row="0"
+                Content="T14" 
+                Padding="10" 
+                Margin="10"
+                Command="{Binding TrigonometryCommandLoad}"/>
+        <Button Grid.Column="13" Grid.Row="0"
+                Content="T15" 
+                Padding="10" 
+                Margin="10"
+                Command="{Binding TrigonometryCommandLoad}"/>
+        <Button Grid.Column="14" Grid.Row="0"
+                Content="T16" 
+                Padding="10" 
+                Margin="10"
+                Command="{Binding TrigonometryCommandLoad}"/>
+        <Button Grid.Column="15" Grid.Row="0"
+                Content="T2" 
+                Padding="10" 
+                Margin="10"
+                Command="{Binding TrigonometryCommandLoad}"/>
         <ContentControl Grid.Row="1" 
                         Name ="CustomContentControl" Margin="0,0,-500,-387" Grid.ColumnSpan="3"/>
 

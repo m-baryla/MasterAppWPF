@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,6 +31,7 @@ namespace BaseAppClass
                 foreach (var connect in connectors)
                 {
                     var pluginDynamicDLL = ModuleLoader.LoadPlugger<IPlugger>(GetPluggerDll(connect), null);
+
                     TabItem button = new TabItem
                     {
                         Header = pluginDynamicDLL.PluggerName,
