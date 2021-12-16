@@ -82,7 +82,7 @@
         <StackPanel Background="{DynamicResource ContentBackgroundColor}"
                    Height="Auto"
                    Width="Auto">
-           <ContentControl Name ="CustomContentControl"/>
+            <ContentControl Name ="CustomContentControl"/>
        </StackPanel>
     </DockPanel>
 </UserControl>

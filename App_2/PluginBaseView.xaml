@@ -8,7 +8,7 @@
              HorizontalAlignment="Stretch"
              VerticalAlignment="Stretch">
     <UserControl.Resources>
-        <!-- Colors -->
+         <!--Colors--> 
         <SolidColorBrush x:Key="PrimaryBlueColor" Color="#348ef6"></SolidColorBrush>
         <SolidColorBrush x:Key="SecondaryBlueColor" Color="#EFF2FF"></SolidColorBrush>
         <SolidColorBrush x:Key="PrimaryTextColor" Color="#FFFFFF"></SolidColorBrush>
@@ -16,7 +16,7 @@
         <SolidColorBrush x:Key="PrimaryGrayColor" Color="#BBC1D1"></SolidColorBrush>
         <SolidColorBrush x:Key="ContentBackgroundColor" Color="#FFFFFF"></SolidColorBrush>
         <SolidColorBrush x:Key="IcoColor" Color="#4C87B3"></SolidColorBrush>
-        <!-- Button Style -->
+         <!--Button Style--> 
         <Style x:Name ="ButtonStyle" x:Key="ButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="Background" Value="Transparent"></Setter>
             <Setter Property="Foreground" Value="{DynamicResource SecondaryTextColor}"></Setter>
@@ -80,7 +80,7 @@
             </ItemsControl>
         </StackPanel>
 
-        <StackPanel Background="{DynamicResource ContentBackgroundColor}"
+        <StackPanel Background="{StaticResource ContentBackgroundColor}"
                    Height="Auto"
                    Width="Auto">
             <ContentControl Name ="CustomContentControl"/>

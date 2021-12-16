@@ -5,7 +5,7 @@ namespace BaseAppClass
 {
     public static class GetConfig
     {
-        public static string GetDllPath(string key)
+        public static string GetPath(string key)
         {
             return Directory.GetParent(Directory.GetCurrentDirectory())?.Parent.Parent.Parent.FullName + ConfigurationManager.AppSettings.Get(key);
         }

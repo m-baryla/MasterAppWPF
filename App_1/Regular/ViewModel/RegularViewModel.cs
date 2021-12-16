@@ -1,6 +1,9 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 using App_1.Regular.Model;
 using BaseAppClass;
 
@@ -9,7 +12,6 @@ namespace App_1.Regular.ViewModel
     public class RegularViewModel : ViewModelBase
     {
         private readonly RegularModel _regularModel;
-
         public float X
         {
             get { return _regularModel.x; }

@@ -26,21 +26,19 @@ namespace App_1
         {
             _cc = cc;
             buttonsList = new List<Button>();
-            buttonsList.Add(new Button() { Style = ButtonStyle, Content = "Regular", Command = new RelayCommand(_ => _RegularCommandLoad()) });
-            buttonsList.Add(new Button() { Style = ButtonStyle, Content = "Trigonometry", Command = new RelayCommand(_ => _TrigonometryCommandLoad()) });
+            buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Trigonometry"), Command = new RelayCommand(_ => _RegularCommandLoad()) });
+            buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Regular"), Command = new RelayCommand(_ => _TrigonometryCommandLoad()) });
         }
 
         private void _RegularCommandLoad()
         {
-            var userControls = new RegularView();
-            _cc.Content = userControls.Content;
+            _cc.Content = new RegularView().Content;
             _cc.DataContext = new RegularViewModel(new RegularModel() { x = 9, y = 9, result = 9 });
         }
 
         private void _TrigonometryCommandLoad()
         {
-            var userControls = new TrigonometryView();
-            _cc.Content = userControls.Content;
+            _cc.Content = new TrigonometryView().Content;
             _cc.DataContext = new TrigonometryViewModel();
         }
     }

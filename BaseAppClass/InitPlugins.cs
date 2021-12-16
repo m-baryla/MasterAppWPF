@@ -7,7 +7,7 @@ namespace BaseAppClass
         public static void Init(TabControl tabPlugs)
         {
             AvailablePlugin availablePlugin = new AvailablePlugin();
-            availablePlugin.LoadView(tabPlugs, GetConfig.GetDllPath("dllsPath"));
+            availablePlugin.LoadView(tabPlugs, GetConfig.GetPath("dllsPath"));
         }
     }
 }

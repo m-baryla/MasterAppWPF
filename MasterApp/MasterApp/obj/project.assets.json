@@ -494,7 +494,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mbaryla\\.nuget\\packages\\": {},
+    "C:\\Users\\oppit\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
@@ -504,7 +504,7 @@
       "projectUniqueName": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\MasterApp\\MasterApp\\MasterApp.csproj",
       "projectName": "MasterApp",
       "projectPath": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\MasterApp\\MasterApp\\MasterApp.csproj",
-      "packagesPath": "C:\\Users\\mbaryla\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\oppit\\.nuget\\packages\\",
       "outputPath": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\MasterApp\\MasterApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
@@ -512,7 +512,7 @@
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\mbaryla\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\oppit\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
