@@ -27,7 +27,7 @@ namespace App_1
         {
             _cc = cc;
             buttonsList = new List<Button>();
-            if (UserPermissions.IsAllowed(ApplicationRoles.Trigonometry,sql)) buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Trigonometry"), Command = new RelayCommandService(_ => _RegularCommandLoad()) });
+            if (UserPermissions.IsAllowed(ApplicationRoles.Trigonometry,sql)) buttonsList.Add(new Button() {Style = ButtonStyle, Content = IconService.SetIcon("Trigonometry"), Command = new RelayCommandService(_ => _RegularCommandLoad()) });
             if (UserPermissions.IsAllowed(ApplicationRoles.Regular,sql)) buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Regular"), Command = new RelayCommandService(_ => _TrigonometryCommandLoad()) });
         }
 

@@ -4,11 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:App_2"
-             mc:Ignorable="d" 
-             HorizontalAlignment="Stretch"
-             VerticalAlignment="Stretch">
+             mc:Ignorable="d">
     <UserControl.Resources>
-         <!--Colors--> 
+        <!-- Colors -->
         <SolidColorBrush x:Key="PrimaryBlueColor" Color="#348ef6"></SolidColorBrush>
         <SolidColorBrush x:Key="SecondaryBlueColor" Color="#EFF2FF"></SolidColorBrush>
         <SolidColorBrush x:Key="PrimaryTextColor" Color="#FFFFFF"></SolidColorBrush>
@@ -16,33 +14,29 @@
         <SolidColorBrush x:Key="PrimaryGrayColor" Color="#BBC1D1"></SolidColorBrush>
         <SolidColorBrush x:Key="ContentBackgroundColor" Color="#FFFFFF"></SolidColorBrush>
         <SolidColorBrush x:Key="IcoColor" Color="#4C87B3"></SolidColorBrush>
-         <!--Button Style--> 
+        <!-- Button Style -->
         <Style x:Name ="ButtonStyle" x:Key="ButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="Background" Value="Transparent"></Setter>
             <Setter Property="Foreground" Value="{DynamicResource SecondaryTextColor}"></Setter>
             <Setter Property="BorderThickness" Value="0"></Setter>
             <Setter Property="BorderBrush" Value="Transparent"></Setter>
-            <Setter Property="Margin" Value="5,5,0,0"></Setter>
-            <Setter Property="Width" Value="150"></Setter>
+            <Setter Property="Margin" Value="5,5,5,5"></Setter>
+            <Setter Property="Width" Value="45"></Setter>
             <Setter Property="Height" Value="30"></Setter>
-            <Setter Property="Padding" Value="0,0,0,0"></Setter>
-            <Setter Property="FontWeight" Value="100"></Setter>
-            <Setter Property="VerticalAlignment" Value="Center"></Setter>
-            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
 
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border CornerRadius="4" Background="{TemplateBinding Background}">
                             <Grid>
-                                <Path x:Name="PathIcon" 
+                                <!--<Path x:Name="PathIcon" 
                                       Width="15" 
                                       Height="25" 
                                       Stretch="Fill" 
                                       Fill="{DynamicResource IcoColor}" 
                                       HorizontalAlignment="Left" 
                                       Margin="17,0,0,0" 
-                                      Data="F1 M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z "/>
+                                      Data="F1 M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z "/>-->
                                 <ContentPresenter x:Name="MyContentPresenter" 
                                                   Content="{TemplateBinding Content}" 
                                                   HorizontalAlignment="Center" 
@@ -67,22 +61,11 @@
         </Style>
     </UserControl.Resources>
 
-    <DockPanel LastChildFill="True"
-               HorizontalAlignment="Stretch">
-        <StackPanel DockPanel.Dock="Left"              
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch">
-            <ItemsControl ItemsSource="{Binding ButtonsList}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+    <DockPanel LastChildFill="True">
+        <StackPanel DockPanel.Dock="Left">
+            <ItemsControl ItemsSource="{Binding ButtonsList}"></ItemsControl>
         </StackPanel>
-
-        <StackPanel Background="{StaticResource ContentBackgroundColor}"
-                   Height="Auto"
-                   Width="Auto">
+        <StackPanel Background="{DynamicResource ContentBackgroundColor}">
             <ContentControl Name ="CustomContentControl"/>
         </StackPanel>
     </DockPanel>
