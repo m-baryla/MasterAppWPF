@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [SQL_CRUD]
+    AUTHORIZATION [dbo];
+
