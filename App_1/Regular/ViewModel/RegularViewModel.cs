@@ -9,7 +9,7 @@ using BaseAppClass;
 
 namespace App_1.Regular.ViewModel
 {
-    public class RegularViewModel : ViewModelBase
+    public class RegularViewModel : ViewModelBaseService
     {
         private readonly RegularModel _regularModel;
         public float X
@@ -35,10 +35,10 @@ namespace App_1.Regular.ViewModel
         
         public RegularViewModel(RegularModel regularModel)
         {
-            AddCommand = new RelayCommand(_ => _Add());
-            SubstractCommand = new RelayCommand(_ => _Substract());
-            MultiplyCommand = new RelayCommand(_ => _Multiply());
-            DivideCommand = new RelayCommand(_ => _Divide());
+            AddCommand = new RelayCommandService(_ => _Add());
+            SubstractCommand = new RelayCommandService(_ => _Substract());
+            MultiplyCommand = new RelayCommandService(_ => _Multiply());
+            DivideCommand = new RelayCommandService(_ => _Divide());
             this._regularModel = regularModel;
         }
 

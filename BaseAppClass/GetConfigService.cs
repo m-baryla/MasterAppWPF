@@ -3,7 +3,7 @@ using System.IO;
 
 namespace BaseAppClass
 {
-    public static class GetConfig
+    public static class GetConfigService
     {
         public static string GetPath(string key)
         {

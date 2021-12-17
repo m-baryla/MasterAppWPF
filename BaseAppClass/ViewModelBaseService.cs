@@ -2,7 +2,7 @@
 
 namespace BaseAppClass
 {
-    public abstract class ViewModelBase : INotifyPropertyChanged
+    public abstract class ViewModelBaseService : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

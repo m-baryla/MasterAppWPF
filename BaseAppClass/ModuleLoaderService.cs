@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace BaseAppClass
 {
-    public static class ModuleLoader
+    public static class ModuleLoaderService
     {
         public static T LoadPlugger<T>(string pathToFile, params object[] args) where T : IPlugger => PrivateLoad<T>(pathToFile, args);
         public static T LoadHelperSQL<T>(string pathToFile, params object[] args) where T : ISQL => PrivateLoad<T>(pathToFile, args);

@@ -19,5 +19,7 @@ namespace Interface
         int ExecuteModData(string procedureName, out string UserMsg, ref IEnumerable<Parameter> procedureParametersOut, IEnumerable<Parameter> procedureParameters);
         DataTable ExecuteModDataTable(string procedureName, out string UserMsg, out int retVal, ref IEnumerable<Parameter> procedureParametersOut, IEnumerable<Parameter> procedureParameters, int? timeoutInSeconds);
         DataTable ExecuteModDataTable(string procedureName, ref IEnumerable<Parameter> procedureParametersOut, IEnumerable<Parameter> procedureParameters);
+        bool GetUserPermission(string procedureName, string userRole);
+
     }
 }

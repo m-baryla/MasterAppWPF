@@ -10,10 +10,11 @@ using App_1.Regular.ViewModel;
 using App_1.Trigonometry.View;
 using App_1.Trigonometry.ViewModel;
 using BaseAppClass;
+using Interface;
 
 namespace App_1
 {
-    public class PluginBaseViewModel : ViewModelBase
+    public class PluginBaseViewModel : ViewModelBaseService
     {
         private readonly ContentControl _cc;
         private List<Button> buttonsList;
@@ -22,12 +23,12 @@ namespace App_1
             get { return buttonsList; }
             set { if (buttonsList == value) return; buttonsList = value; OnPropertyChanged("ButtonsList"); }
         }
-        public PluginBaseViewModel(ContentControl cc, Style ButtonStyle)
+        public PluginBaseViewModel(ContentControl cc, Style ButtonStyle,ISQL sql)
         {
             _cc = cc;
             buttonsList = new List<Button>();
-            buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Trigonometry"), Command = new RelayCommand(_ => _RegularCommandLoad()) });
-            buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Regular"), Command = new RelayCommand(_ => _TrigonometryCommandLoad()) });
+            if (UserPermissions.IsAllowed(ApplicationRoles.Trigonometry,sql)) buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Trigonometry"), Command = new RelayCommandService(_ => _RegularCommandLoad()) });
+            if (UserPermissions.IsAllowed(ApplicationRoles.Regular,sql)) buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Regular"), Command = new RelayCommandService(_ => _TrigonometryCommandLoad()) });
         }
 
         private void _RegularCommandLoad()

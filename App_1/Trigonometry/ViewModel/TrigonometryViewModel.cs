@@ -7,7 +7,7 @@ using BaseAppClass;
 
 namespace App_1.Trigonometry.ViewModel
 {
-    public class TrigonometryViewModel : ViewModelBase
+    public class TrigonometryViewModel : ViewModelBaseService
     {
         private double x;
         public double X
@@ -28,9 +28,9 @@ namespace App_1.Trigonometry.ViewModel
 
         public TrigonometryViewModel()
         {
-            SinofCommand = new RelayCommand(_=>_Sinof());
-            CosOfCommand = new RelayCommand(_ => _CosOf());
-            TanOfCommand = new RelayCommand(_ => _TanOf());
+            SinofCommand = new RelayCommandService(_=>_Sinof());
+            CosOfCommand = new RelayCommandService(_ => _CosOf());
+            TanOfCommand = new RelayCommandService(_ => _TanOf());
         }
         private void _Sinof()
         {

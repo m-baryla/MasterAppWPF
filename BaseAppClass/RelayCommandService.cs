@@ -4,17 +4,17 @@ using System.Windows.Input;
 
 namespace BaseAppClass
 {
-    public class RelayCommand : ICommand
+    public class RelayCommandService : ICommand
     {
         private readonly Action<object> _execute;
         private readonly Predicate<object> _canExecute;
 
-        public RelayCommand(Action<object> execute)
+        public RelayCommandService(Action<object> execute)
             : this(execute, (Predicate<object>)null)
         {
         }
 
-        public RelayCommand(Action<object> execute, Predicate<object> canExecute)
+        public RelayCommandService(Action<object> execute, Predicate<object> canExecute)
         {
             this._execute = execute != null ? execute : throw new ArgumentNullException(nameof(execute));
             this._canExecute = canExecute;

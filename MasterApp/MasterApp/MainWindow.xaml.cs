@@ -13,7 +13,7 @@ namespace MasterApp
         public MainWindow()
         {
             InitializeComponent();
-            InitPlugins.Init(tabPlugs);
+            InitPluginsService.Init(tabPlugs);
         }
     }
 }

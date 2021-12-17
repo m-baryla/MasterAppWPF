@@ -10,7 +10,7 @@ using Interface;
 
 namespace BaseAppClass
 {
-    public class AvailablePlugin
+    public class AvailablePluginService
     {
         private string GetPluggerDll(string connect)
         {
@@ -32,7 +32,7 @@ namespace BaseAppClass
                 var connectors = Directory.GetDirectories(plugName);
                 foreach (var connect in connectors)
                 {
-                    var pluginDynamicDLL = ModuleLoader.LoadPlugger<IPlugger>(GetPluggerDll(connect), null);
+                    var pluginDynamicDLL = ModuleLoaderService.LoadPlugger<IPlugger>(GetPluggerDll(connect), null);
 
                     TabItem button = new TabItem
                     {

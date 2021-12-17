@@ -4,7 +4,7 @@ using BaseAppClass;
 
 namespace App_2.T_1.Model
 {
-    public class ValueT1Model : ViewModelBase
+    public class ValueT1Model : ViewModelBaseService
     {
         private DateTime? dateTimeValue;
         public DateTime? DateTimeValue

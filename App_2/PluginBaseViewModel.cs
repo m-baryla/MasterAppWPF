@@ -9,7 +9,7 @@ using Interface;
 
 namespace App_2
 {
-    public class PluginBaseViewModel : ViewModelBase
+    public class PluginBaseViewModel : ViewModelBaseService
     {
         private readonly ContentControl _cc;
         private List<Button> buttonsList;
@@ -22,15 +22,13 @@ namespace App_2
         {
             _cc = cc;
             buttonsList = new List<Button>();
-            buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T1", Command = new RelayCommand(_ => _RegularCommandLoad(sql)) });
-            buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T2", Command = new RelayCommand(_ => _RegularCommandLoad(sql)) });
-            buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T3", Command = new RelayCommand(_ => _TrigonometryCommandLoad(sql)) });
-            buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T4", Command = new RelayCommand(_ => _RegularCommandLoad(sql)) });
-            buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T5", Command = new RelayCommand(_ => _TrigonometryCommandLoad(sql)) });
-            buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T6", Command = new RelayCommand(_ => _RegularCommandLoad(sql)) });
-            buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T7", Command = new RelayCommand(_ => _TrigonometryCommandLoad(sql)) });
-            buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T8", Command = new RelayCommand(_ => _RegularCommandLoad(sql)) });
-            buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T9", Command = new RelayCommand(_ => _TrigonometryCommandLoad(sql)) });
+            if (UserPermissions.IsAllowed(ApplicationRoles.T_1, sql))  buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T_1", Command = new RelayCommandService(_ => _RegularCommandLoad(sql)) });
+            if (UserPermissions.IsAllowed(ApplicationRoles.T_1, sql))  buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T_1", Command = new RelayCommandService(_ => _RegularCommandLoad(sql)) });
+            if (UserPermissions.IsAllowed(ApplicationRoles.T_1, sql))  buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T_1", Command = new RelayCommandService(_ => _TrigonometryCommandLoad(sql)) });
+            if (UserPermissions.IsAllowed(ApplicationRoles.T_2, sql))  buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T_2", Command = new RelayCommandService(_ => _RegularCommandLoad(sql)) });
+            if (UserPermissions.IsAllowed(ApplicationRoles.T_2, sql))  buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T_2", Command = new RelayCommandService(_ => _TrigonometryCommandLoad(sql)) });
+            if (UserPermissions.IsAllowed(ApplicationRoles.T_2, sql))  buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T_2", Command = new RelayCommandService(_ => _RegularCommandLoad(sql)) });
+            if (UserPermissions.IsAllowed(ApplicationRoles.T_2, sql))  buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T_2", Command = new RelayCommandService(_ => _TrigonometryCommandLoad(sql)) });
         }
         private void _RegularCommandLoad(ISQL sqlDynamicDLL)
         {

@@ -12,7 +12,7 @@ namespace BaseAppClass
         Warning,
         Error,
     }
-    public class LogMessage
+    public class LogMessageService
     {
         public string Message { get; }
 
@@ -20,7 +20,7 @@ namespace BaseAppClass
 
         public DateTime Time { get; }
 
-        public LogMessage(string message, LogMessageType type, DateTime time)
+        public LogMessageService(string message, LogMessageType type, DateTime time)
         {
             this.Message = message;
             this.Type = type;

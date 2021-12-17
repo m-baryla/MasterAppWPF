@@ -13,7 +13,7 @@ namespace BaseAppClass
         public static Image SetIcon(string key)
         {
             Image image = new Image();
-            image.Source = new BitmapImage(new Uri(GetConfig.GetPath(key)));
+            image.Source = new BitmapImage(new Uri(GetConfigService.GetPath(key)));
             return image;
         }
     }

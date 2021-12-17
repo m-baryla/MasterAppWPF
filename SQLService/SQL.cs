@@ -5,12 +5,15 @@ using System.Data;
 using BaseAppClass;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Principal;
+using System.DirectoryServices;
+
 
 namespace SQLService
 {
     public class SQL : ISQL
     {
-        private string _sqlConnectionString = GetConfig.GetSqlConnectionString();
+        private string _sqlConnectionString = GetConfigService.GetSqlConnectionString();
         public DataRow ExecuteSqlProcedureSingleRow(string procedureName, IEnumerable<Parameter> procedureParameters, int? timeoutInSeconds)
         {
             DataTable dataTable = this.ExecuteSqlProcedureTable(procedureName, procedureParameters, timeoutInSeconds);
@@ -385,33 +388,17 @@ namespace SQLService
             return dataTable;
         }
 
-        //private bool CheckGroupMembership(string userID, string groupName)
-        //{
-        //    PrincipalContext context = new PrincipalContext(ContextType.Domain);
-        //    UserPrincipal byIdentity1 = UserPrincipal.FindByIdentity(context, userID);
-        //    GroupPrincipal byIdentity2 = GroupPrincipal.FindByIdentity(context, groupName);
-        //    return byIdentity1 != null && byIdentity2 != null && byIdentity2.GetMembers(true).Contains<System.DirectoryServices.AccountMament.Principal>((System.DirectoryServices.AccountMament.Principal)byIdentity1);
-        //}
+        public bool GetUserPermission(string procedureName, string userRole)
+        {
+            List<string> source = new List<string>();
+            WindowsIdentity userLoginName = WindowsIdentity.GetCurrent();
+            if (userLoginName == null)
+                return false;
+            foreach (DataRow row in (InternalDataCollectionBase)this.ExecuteSqlProcedureTable(procedureName, new Parameter[1] {new Parameter("@UserRole", (object) userRole)}).Rows)
+                source.Add(row[0].ToString());
 
-        //public bool GetUserPermission(string procedureName, string userRole)
-        //{
-        //    List<string> source = new List<string>();
-        //    WindowsIdentity userLoginName = WindowsIdentity.GetCurrent();
-        //    if (userLoginName == null)
-        //        return false;
-        //    foreach (DataRow row in (InternalDataCollectionBase)this.ExecuteSqlProcedureTable(procedureName, new Parameter[1]
-        //    {
-        //new Parameter("@UserRole", (object) userRole)
-        //    }).Rows)
-        //        source.Add(row[0].ToString());
-        //    WindowsPrincipal principal = new WindowsPrincipal(userLoginName);
-        //    return source.Any<string>((Func<string, bool>)(g => principal.IsInRole(g))) || source.Any<string>((Func<string, bool>)(g => this.CheckGroupMembership(userLoginName.Name, g)));
-        //}
-
-        //public bool GetUserPermission(string groupName)
-        //{
-        //    WindowsIdentity current = WindowsIdentity.GetCurrent();
-        //    return current != null && (new WindowsPrincipal(current).IsInRole(groupName) || this.CheckGroupMembership(current.Name, groupName));
-        //}
+            WindowsPrincipal principal = new WindowsPrincipal(userLoginName);
+            return source.Any<string>((Func<string, bool>)(g => principal.IsInRole(g)));
+        }
     }
 }

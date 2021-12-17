@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using BaseAppClass;
 using Interface;
 
 namespace App_1
@@ -11,8 +12,9 @@ namespace App_1
     {
         public PluginBaseView()
         {
+            var sqlDynamicDLL = ModuleLoaderService.LoadHelperSQL<ISQL>(GetConfigService.GetPath("dllsSQL"), null);
             InitializeComponent();
-            DataContext = new PluginBaseViewModel(CustomContentControl, Resources["ButtonStyle"] as Style);
+            DataContext = new PluginBaseViewModel(CustomContentControl, Resources["ButtonStyle"] as Style,sqlDynamicDLL);
         }
         public string PluggerName { get; set; } = "PluginBaseApp1";
         public UserControl GetPlugger() => this;
