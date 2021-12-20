@@ -1,6 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using System.Windows.Controls;
 using System.Windows.Input;
+using App_1.Trigonometry.ViewModel;
 
 namespace App_1.Trigonometry.View
 {
@@ -9,9 +10,10 @@ namespace App_1.Trigonometry.View
     /// </summary>
     public partial class TrigonometryView : UserControl
     {
-        public TrigonometryView()
+        public TrigonometryView(TrigonometryViewModel trigonometryViewModel)
         {
             InitializeComponent();
+            DataContext = trigonometryViewModel;
         }
         private void AllowOnlyNumbers(object sender, TextCompositionEventArgs e)
         {

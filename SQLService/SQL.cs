@@ -388,7 +388,7 @@ namespace SQLService
             return dataTable;
         }
 
-        public bool GetUserPermission(string procedureName, string userRole)
+        public bool GetUserPermissionDomain(string procedureName, string userRole)
         {
             List<string> source = new List<string>();
             WindowsIdentity userLoginName = WindowsIdentity.GetCurrent();
@@ -399,6 +399,22 @@ namespace SQLService
 
             WindowsPrincipal principal = new WindowsPrincipal(userLoginName);
             return source.Any<string>((Func<string, bool>)(g => principal.IsInRole(g)));
+        }
+
+        public bool GetUserPermissionLogin(string procedureName, string userRole)
+        {
+            List<string> source = new List<string>();
+            WindowsIdentity userLoginName = WindowsIdentity.GetCurrent();
+            if (userLoginName == null)
+                return false;
+
+            var dbo = this.ExecuteSqlProcedureTable(procedureName,
+                new Parameter[1] { new Parameter("@UserRole", (object)userRole) });
+
+            foreach (DataRow row in dbo.Rows)
+                source.Add(row[0].ToString());
+
+            return source.Contains(userLoginName.Name.ToString());
         }
     }
 }

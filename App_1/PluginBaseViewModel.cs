@@ -16,31 +16,25 @@ namespace App_1
 {
     public class PluginBaseViewModel : ViewModelBaseService
     {
-        private readonly ContentControl _cc;
+        private object _currentWorkspace;
+        public object CurrentWorkspace
+        {
+            get { return this._currentWorkspace; }
+            set { this._currentWorkspace = value; OnPropertyChanged("CurrentWorkspace"); }
+        }
+
         private List<Button> buttonsList;
         public List<Button> ButtonsList
         {
             get { return buttonsList; }
             set { if (buttonsList == value) return; buttonsList = value; OnPropertyChanged("ButtonsList"); }
         }
-        public PluginBaseViewModel(ContentControl cc, Style ButtonStyle,ISQL sql)
+        public PluginBaseViewModel(Style ButtonStyle,ISQL sql)
         {
-            _cc = cc;
             buttonsList = new List<Button>();
-            if (UserPermissions.IsAllowed(ApplicationRoles.Trigonometry,sql)) buttonsList.Add(new Button() {Style = ButtonStyle, Content = IconService.SetIcon("Trigonometry"), Command = new RelayCommandService(_ => _RegularCommandLoad()) });
-            if (UserPermissions.IsAllowed(ApplicationRoles.Regular,sql)) buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Regular"), Command = new RelayCommandService(_ => _TrigonometryCommandLoad()) });
-        }
 
-        private void _RegularCommandLoad()
-        {
-            _cc.Content = new RegularView().Content;
-            _cc.DataContext = new RegularViewModel(new RegularModel() { x = 9, y = 9, result = 9 });
-        }
-
-        private void _TrigonometryCommandLoad()
-        {
-            _cc.Content = new TrigonometryView().Content;
-            _cc.DataContext = new TrigonometryViewModel();
+            if (UserPermissions.IsAllowed(ApplicationRoles.Trigonometry, sql)) buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Trigonometry"), Command = new RelayCommandService(_ => CurrentWorkspace = new RegularView(new RegularViewModel(new RegularModel() { x = 9, y = 9, result = 9 }))) });
+            if (UserPermissions.IsAllowed(ApplicationRoles.Regular, sql)) buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Regular"), Command = new RelayCommandService(_ => CurrentWorkspace = new TrigonometryView(new TrigonometryViewModel())) });
         }
     }
 }

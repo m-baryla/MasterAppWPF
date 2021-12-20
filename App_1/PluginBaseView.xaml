@@ -65,7 +65,7 @@
             <ItemsControl ItemsSource="{Binding ButtonsList}"></ItemsControl>
         </StackPanel>
         <StackPanel Background="{DynamicResource ContentBackgroundColor}">
-            <ContentControl Name ="CustomContentControl"/>
-       </StackPanel>
+            <ContentControl Content="{Binding CurrentWorkspace}" />
+        </StackPanel>
     </DockPanel>
 </UserControl>

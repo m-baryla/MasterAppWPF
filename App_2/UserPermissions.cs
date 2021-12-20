@@ -13,11 +13,11 @@ namespace App_2
         public static bool IsAllowed(ApplicationRoles appRole,ISQL sql)
         {
             if (!_permissionsDict.ContainsKey(ApplicationRoles.Admin))
-                _permissionsDict[ApplicationRoles.Admin] = sql.GetUserPermission("SQL_.GetUserPermissions_App_2", ApplicationRoles.Admin.ToString());
+                _permissionsDict[ApplicationRoles.Admin] = sql.GetUserPermissionLogin("SQL_.GetUserPermissions_App_2", ApplicationRoles.Admin.ToString());
             if (_permissionsDict[ApplicationRoles.Admin] == true) return true;
 
             if (!_permissionsDict.ContainsKey(appRole))
-                _permissionsDict[appRole] = sql.GetUserPermission("SQL_.GetUserPermissions_App_2", appRole.ToString());
+                _permissionsDict[appRole] = sql.GetUserPermissionLogin("SQL_.GetUserPermissions_App_2", appRole.ToString());
             return _permissionsDict[appRole];
         }
     }

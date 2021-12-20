@@ -33,15 +33,12 @@
             <TabControl Name="tabPlugs"
                         ItemContainerStyle="{StaticResource TabItemStyle}"
                         Style="{StaticResource TabControlStyle}">
-
-
             </TabControl>
         </StackPanel>
 
         <Label Content="Label" 
                Grid.Column="0" 
                Grid.Row="2">
-
         </Label>
 
     </Grid>
