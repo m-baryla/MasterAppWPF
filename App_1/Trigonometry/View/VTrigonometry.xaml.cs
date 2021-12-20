@@ -6,14 +6,14 @@ using App_1.Trigonometry.ViewModel;
 namespace App_1.Trigonometry.View
 {
     /// <summary>
-    /// Interaction logic for TrigonometryView.xaml
+    /// Interaction logic for VTrigonometry.xaml
     /// </summary>
-    public partial class TrigonometryView : UserControl
+    public partial class VTrigonometry : UserControl
     {
-        public TrigonometryView(TrigonometryViewModel trigonometryViewModel)
+        public VTrigonometry(VMTrigonometry vmTrigonometry)
         {
             InitializeComponent();
-            DataContext = trigonometryViewModel;
+            DataContext = vmTrigonometry;
         }
         private void AllowOnlyNumbers(object sender, TextCompositionEventArgs e)
         {

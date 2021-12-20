@@ -7,14 +7,14 @@ using App_1.Regular.ViewModel;
 namespace App_1.Regular.View
 {
     /// <summary>
-    /// Interaction logic for RegularView.xaml
+    /// Interaction logic for VRegular.xaml
     /// </summary>
-    public partial class RegularView : UserControl
+    public partial class VRegular : UserControl
     {
-        public RegularView(RegularViewModel regularViewModel)
+        public VRegular(VMRegular vmRegular)
         {
             InitializeComponent();
-            DataContext = regularViewModel;
+            DataContext = vmRegular;
         }
         private void AllowOnlyNumbers(object sender, TextCompositionEventArgs e)
         {

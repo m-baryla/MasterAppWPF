@@ -6,15 +6,15 @@ using Interface;
 namespace App_1
 {
     /// <summary>
-    /// Interaction logic for PluginBaseView.xaml
+    /// Interaction logic for VPluginBase.xaml
     /// </summary>
-    public partial class PluginBaseView : UserControl,IPlugger
+    public partial class VPluginBase : UserControl,IPlugger
     {
-        public PluginBaseView()
+        public VPluginBase()
         {
             var sqlDynamicDLL = ModuleLoaderService.LoadHelperSQL<ISQL>(GetConfigService.GetPath("dllsSQL"), null);
             InitializeComponent();
-            DataContext = new PluginBaseViewModel(Resources["ButtonStyle"] as Style, sqlDynamicDLL);
+            DataContext = new VMPluginBase(Resources["ButtonStyle"] as Style, sqlDynamicDLL);
         }
         public string PluggerName { get; set; } = "PluginBaseApp1";
         public UserControl GetPlugger() => this;

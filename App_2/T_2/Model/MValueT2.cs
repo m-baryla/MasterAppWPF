@@ -4,7 +4,7 @@ using BaseAppClass;
 
 namespace App_2.T_2.Model
 {
-    public class ValueT2Model : ViewModelBaseService
+    public class MValueT2 : ViewModelBaseService
     {
         private DateTime? dateTimeValue;
         public DateTime? DateTimeValue
@@ -35,18 +35,18 @@ namespace App_2.T_2.Model
         }
 
 
-        public ValueT2Model()
+        public MValueT2()
         {
 
         }
-        public ValueT2Model(DataRow row)
+        public MValueT2(DataRow row)
         {
             DateTimeValue = string.IsNullOrWhiteSpace(row["DateTimeValue"].ToString()) ? (DateTime?)null : DateTime.Parse(row["DateTimeValue"].ToString());
             DoubleVaule = string.IsNullOrWhiteSpace(row["DoubleVaule"].ToString()) ? (double?)null : double.Parse(row["DoubleVaule"].ToString());
             StringValue = row["StringValue"].ToString();
             IntValue = string.IsNullOrWhiteSpace(row["IntValue"].ToString()) ? (int?)null : int.Parse(row["IntValue"].ToString());
         }
-        public ValueT2Model(DataRow row, int IntValue)
+        public MValueT2(DataRow row, int IntValue)
         {
             this.IntValue = IntValue;
             DateTimeValue = string.IsNullOrWhiteSpace(row["DateTimeValue"].ToString()) ? (DateTime?)null : DateTime.Parse(row["DateTimeValue"].ToString());

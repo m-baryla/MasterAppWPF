@@ -14,7 +14,7 @@ using Interface;
 
 namespace App_1
 {
-    public class PluginBaseViewModel : ViewModelBaseService
+    public class VMPluginBase : ViewModelBaseService
     {
         private object _currentWorkspace;
         public object CurrentWorkspace
@@ -29,14 +29,14 @@ namespace App_1
             get { return buttonsList; }
             set { if (buttonsList == value) return; buttonsList = value; OnPropertyChanged("ButtonsList"); }
         }
-        public PluginBaseViewModel(Style ButtonStyle,ISQL sql)
+        public VMPluginBase(Style ButtonStyle,ISQL sql)
         {
             var Trigonometry = UserPermissions.IsAllowed(ApplicationRoles.Trigonometry, sql);
             var Regular = UserPermissions.IsAllowed(ApplicationRoles.Regular, sql);
 
             buttonsList = new List<Button>();
-            if (Trigonometry) buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Trigonometry"), Command = new RelayCommandService(_ => CurrentWorkspace = new RegularView(new RegularViewModel(new RegularModel() { x = 9, y = 9, result = 9 }))) });
-            if (Regular) buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Regular"), Command = new RelayCommandService(_ => CurrentWorkspace = new TrigonometryView(new TrigonometryViewModel())) });
+            if (Trigonometry) buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Trigonometry"), Command = new RelayCommandService(_ => CurrentWorkspace = new VRegular(new VMRegular(new MRegular() { x = 9, y = 9, result = 9 }))) });
+            if (Regular) buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Regular"), Command = new RelayCommandService(_ => CurrentWorkspace = new VTrigonometry(new VMTrigonometry())) });
         }
     }
 }

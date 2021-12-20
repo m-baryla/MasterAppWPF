@@ -1,9 +1,8 @@
-﻿<UserControl x:Class="App_2.PluginBaseView"
+﻿<UserControl x:Class="App_1.VPluginBase"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:App_2"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d">
     <UserControl.Resources>
         <!-- Colors -->
@@ -60,7 +59,7 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-
+    
     <DockPanel LastChildFill="True">
         <StackPanel DockPanel.Dock="Left">
             <ItemsControl ItemsSource="{Binding ButtonsList}"></ItemsControl>

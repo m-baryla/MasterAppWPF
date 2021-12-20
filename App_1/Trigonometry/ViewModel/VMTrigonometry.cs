@@ -7,7 +7,7 @@ using BaseAppClass;
 
 namespace App_1.Trigonometry.ViewModel
 {
-    public class TrigonometryViewModel : ViewModelBaseService
+    public class VMTrigonometry : ViewModelBaseService
     {
         private double x;
         public double X
@@ -26,7 +26,7 @@ namespace App_1.Trigonometry.ViewModel
         public ICommand CosOfCommand { get; set; }
         public ICommand TanOfCommand { get; set; }
 
-        public TrigonometryViewModel()
+        public VMTrigonometry()
         {
             SinofCommand = new RelayCommandService(_=>_Sinof());
             CosOfCommand = new RelayCommandService(_ => _CosOf());

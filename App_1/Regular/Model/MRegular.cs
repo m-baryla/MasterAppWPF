@@ -1,6 +1,6 @@
 ﻿namespace App_1.Regular.Model
 {
-    public class RegularModel
+    public class MRegular
     {
         public float x { get; set; }
         public float y { get; set; }
