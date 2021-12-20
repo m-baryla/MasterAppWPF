@@ -14,9 +14,8 @@ namespace App_2
     {
         public VPluginBase()
         {
-            var sqlDynamicDLL = ModuleLoaderService.LoadHelperSQL<ISQL>(GetConfigService.GetPath("dllsSQL"), null);
             InitializeComponent();
-            DataContext = new VMPluginBase(Resources["ButtonStyle"] as Style, sqlDynamicDLL);
+            DataContext = new VMPluginBase(Resources["ButtonStyle"] as Style);
         }
         public string PluggerName { get; set; } = "PluginBaseApp2";
         public UserControl GetPlugger() => this;

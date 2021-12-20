@@ -10,10 +10,9 @@ namespace App_1.Trigonometry.View
     /// </summary>
     public partial class VTrigonometry : UserControl
     {
-        public VTrigonometry(VMTrigonometry vmTrigonometry)
+        public VTrigonometry()
         {
             InitializeComponent();
-            DataContext = vmTrigonometry;
         }
         private void AllowOnlyNumbers(object sender, TextCompositionEventArgs e)
         {

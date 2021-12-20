@@ -11,10 +11,9 @@ namespace App_1.Regular.View
     /// </summary>
     public partial class VRegular : UserControl
     {
-        public VRegular(VMRegular vmRegular)
+        public VRegular()
         {
             InitializeComponent();
-            DataContext = vmRegular;
         }
         private void AllowOnlyNumbers(object sender, TextCompositionEventArgs e)
         {

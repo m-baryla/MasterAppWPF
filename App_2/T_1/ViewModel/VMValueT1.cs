@@ -14,6 +14,7 @@ namespace App_2.T_1.ViewModel
         public VMValueT1(ISQL _sql)
         {
             this._sql = _sql;
+            GetValueT1Model_DataTable();
         }
         public List<MValueT1> GetValueT1Model_DataTable()
         {

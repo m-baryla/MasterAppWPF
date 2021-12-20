@@ -29,14 +29,16 @@ namespace App_1
             get { return buttonsList; }
             set { if (buttonsList == value) return; buttonsList = value; OnPropertyChanged("ButtonsList"); }
         }
-        public VMPluginBase(Style ButtonStyle,ISQL sql)
+        public VMPluginBase(Style ButtonStyle)
         {
+            var sql = ModuleLoaderService.LoadHelperSQL<ISQL>(GetConfigService.GetPath("dllsSQL"), null);
+
             var Trigonometry = UserPermissions.IsAllowed(ApplicationRoles.Trigonometry, sql);
             var Regular = UserPermissions.IsAllowed(ApplicationRoles.Regular, sql);
 
             buttonsList = new List<Button>();
-            if (Trigonometry) buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Trigonometry"), Command = new RelayCommandService(_ => CurrentWorkspace = new VRegular(new VMRegular(new MRegular() { x = 9, y = 9, result = 9 }))) });
-            if (Regular) buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Regular"), Command = new RelayCommandService(_ => CurrentWorkspace = new VTrigonometry(new VMTrigonometry())) });
+            if (Trigonometry) buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Trigonometry"), Command = new RelayCommandService(_ => CurrentWorkspace = new VRegular {DataContext = new VMRegular(new MRegular() { x = 9, y = 9, result = 9}) }) });
+            if (Regular) buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Regular"), Command = new RelayCommandService(_ => CurrentWorkspace = new VTrigonometry { DataContext = new VMTrigonometry() }) });
         }
     }
 }
