@@ -25,14 +25,17 @@ namespace App_2
         }
         public PluginBaseViewModel(Style ButtonStyle, ISQL sql)
         {
+            var T_1 = UserPermissions.IsAllowed(ApplicationRoles.T_1, sql);
+            var T_2 = UserPermissions.IsAllowed(ApplicationRoles.T_2, sql);
+
             buttonsList = new List<Button>();
-            if (UserPermissions.IsAllowed(ApplicationRoles.T_1, sql))  buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T_1", Command = new RelayCommandService(_ => new ValueT1ViewModel(sql)) });
-            if (UserPermissions.IsAllowed(ApplicationRoles.T_1, sql))  buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T_1", Command = new RelayCommandService(_ => new ValueT1ViewModel(sql)) });
-            if (UserPermissions.IsAllowed(ApplicationRoles.T_1, sql))  buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T_1", Command = new RelayCommandService(_ => new ValueT1ViewModel(sql)) });
-            if (UserPermissions.IsAllowed(ApplicationRoles.T_2, sql))  buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T_2", Command = new RelayCommandService(_ => new ValueT1ViewModel(sql)) });
-            if (UserPermissions.IsAllowed(ApplicationRoles.T_2, sql))  buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T_2", Command = new RelayCommandService(_ => new ValueT1ViewModel(sql)) });
-            if (UserPermissions.IsAllowed(ApplicationRoles.T_2, sql))  buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T_2", Command = new RelayCommandService(_ => new ValueT1ViewModel(sql)) });
-            if (UserPermissions.IsAllowed(ApplicationRoles.T_2, sql))  buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T_2", Command = new RelayCommandService(_ => new ValueT1ViewModel(sql)) });
+            if (T_1) buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T_1", Command = new RelayCommandService(_ => new ValueT1ViewModel(sql)) });
+            if (T_1) buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T_1", Command = new RelayCommandService(_ => new ValueT1ViewModel(sql)) });
+            if (T_1) buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T_1", Command = new RelayCommandService(_ => new ValueT1ViewModel(sql)) });
+            if (T_2) buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T_2", Command = new RelayCommandService(_ => new ValueT1ViewModel(sql)) });
+            if (T_2) buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T_2", Command = new RelayCommandService(_ => new ValueT1ViewModel(sql)) });
+            if (T_2) buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T_2", Command = new RelayCommandService(_ => new ValueT1ViewModel(sql)) });
+            if (T_2) buttonsList.Add(new Button() { Style = ButtonStyle, Content = "T_2", Command = new RelayCommandService(_ => new ValueT1ViewModel(sql)) });
         }
     }
 }

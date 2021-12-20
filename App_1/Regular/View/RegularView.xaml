@@ -72,6 +72,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <!--HEADER-->
         <Grid Grid.Row="0" 
               Grid.Column="0"
               Background="{StaticResource PrimaryBlueColor}">
@@ -81,6 +82,7 @@
                    HorizontalAlignment="Center"/>
         </Grid>
 
+        <!--HEADER-->
         <Grid Grid.Row="1"
               Grid.Column="0">
             <StackPanel Orientation="Horizontal" 
@@ -99,6 +101,7 @@
             </StackPanel>
         </Grid>
 
+        <!--END-->
         <Grid Grid.Row="2"
               Grid.Column="0"
               HorizontalAlignment="Center">

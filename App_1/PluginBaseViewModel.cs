@@ -31,9 +31,12 @@ namespace App_1
         }
         public PluginBaseViewModel(Style ButtonStyle,ISQL sql)
         {
+            var Trigonometry = UserPermissions.IsAllowed(ApplicationRoles.Trigonometry, sql);
+            var Regular = UserPermissions.IsAllowed(ApplicationRoles.Regular, sql);
+
             buttonsList = new List<Button>();
-            if (UserPermissions.IsAllowed(ApplicationRoles.Trigonometry, sql)) buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Trigonometry"), Command = new RelayCommandService(_ => CurrentWorkspace = new RegularView(new RegularViewModel(new RegularModel() { x = 9, y = 9, result = 9 }))) });
-            if (UserPermissions.IsAllowed(ApplicationRoles.Regular, sql)) buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Regular"), Command = new RelayCommandService(_ => CurrentWorkspace = new TrigonometryView(new TrigonometryViewModel())) });
+            if (Trigonometry) buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Trigonometry"), Command = new RelayCommandService(_ => CurrentWorkspace = new RegularView(new RegularViewModel(new RegularModel() { x = 9, y = 9, result = 9 }))) });
+            if (Regular) buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Regular"), Command = new RelayCommandService(_ => CurrentWorkspace = new TrigonometryView(new TrigonometryViewModel())) });
         }
     }
 }
