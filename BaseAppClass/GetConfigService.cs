@@ -1,5 +1,8 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using System.IO;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace BaseAppClass
 {
@@ -12,6 +15,12 @@ namespace BaseAppClass
         public static string GetSqlConnectionString()
         {
             return ConfigurationManager.AppSettings.Get("sqlConnectionString");
+        }
+        public static Image GetIcon(string key)
+        {
+            Image image = new Image();
+            image.Source = new BitmapImage(new Uri(GetConfigService.GetPath(key)));
+            return image;
         }
     }
 }

@@ -12,6 +12,11 @@ namespace BaseAppClass
 {
     public class AvailablePluginService
     {
+        public static void Init(TabControl tabPlugs)
+        {
+            AvailablePluginService availablePlugin = new AvailablePluginService();
+            availablePlugin.LoadView(tabPlugs, GetConfigService.GetPath("dllsPath"));
+        }
         private string GetPluggerDll(string connect)
         {
             var files = Directory.GetFiles(connect + @"\net5.0-windows", "*.dll");
@@ -23,7 +28,7 @@ namespace BaseAppClass
             }
             return string.Empty;
         }
-        public void LoadView(TabControl tabPlugs, string path)
+        private void LoadView(TabControl tabPlugs, string path)
         {
             try
             {

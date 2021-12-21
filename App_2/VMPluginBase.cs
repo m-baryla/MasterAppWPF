@@ -29,7 +29,7 @@ namespace App_2
         public VMPluginBase(Style ButtonStyle)
         {
             var sql = ModuleLoaderService.LoadHelperSQL<ISQL>(GetConfigService.GetPath("dllsSQL"), null);
-            //var baseClassApp = 
+            //var baseClassApp = ModuleLoaderService.LoadBaseClassApp<ISQL>(GetConfigService.GetPath("dllsSQL"), null);
 
             var T_1 = UserPermissions.IsAllowed(ApplicationRoles.T_1, sql);
             var T_2 = UserPermissions.IsAllowed(ApplicationRoles.T_2, sql);

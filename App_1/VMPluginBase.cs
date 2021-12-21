@@ -37,8 +37,8 @@ namespace App_1
             var Regular = UserPermissions.IsAllowed(ApplicationRoles.Regular, sql);
 
             buttonsList = new List<Button>();
-            if (Trigonometry) buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Trigonometry"), Command = new RelayCommandService(_ => CurrentWorkspace = new VRegular {DataContext = new VMRegular(new MRegular() { x = 9, y = 9, result = 9}) }) });
-            if (Regular) buttonsList.Add(new Button() { Style = ButtonStyle, Content = IconService.SetIcon("Regular"), Command = new RelayCommandService(_ => CurrentWorkspace = new VTrigonometry { DataContext = new VMTrigonometry() }) });
+            if (Trigonometry) buttonsList.Add(new Button() { Style = ButtonStyle, Content = GetConfigService.GetIcon("Trigonometry"), Command = new RelayCommandService(_ => CurrentWorkspace = new VRegular {DataContext = new VMRegular(new MRegular() { x = 9, y = 9, result = 9}) }) });
+            if (Regular) buttonsList.Add(new Button() { Style = ButtonStyle, Content = GetConfigService.GetIcon("Regular"), Command = new RelayCommandService(_ => CurrentWorkspace = new VTrigonometry { DataContext = new VMTrigonometry() }) });
         }
     }
 }
