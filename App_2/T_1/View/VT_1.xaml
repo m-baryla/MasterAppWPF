@@ -4,9 +4,117 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:App_2.T_1.View"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <!-- Colors -->
+        <SolidColorBrush x:Key="PrimaryBlueColor" Color="#348ef6"></SolidColorBrush>
+        <SolidColorBrush x:Key="SecondaryBlueColor" Color="#EFF2FF"></SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryTextColor" Color="#FFFFFF"></SolidColorBrush>
+        <SolidColorBrush x:Key="SecondaryTextColor" Color="#BBC1D1"></SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryGrayColor" Color="#BBC1D1"></SolidColorBrush>
+        <SolidColorBrush x:Key="ContentBackgroundColor" Color="#FFFFFF"></SolidColorBrush>
+        <SolidColorBrush x:Key="IcoColor" Color="#4C87B3"></SolidColorBrush>
+        <!-- Button Style -->
+        <Style x:Name ="ButtonStyle" x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="Foreground" Value="{DynamicResource SecondaryTextColor}"></Setter>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="BorderBrush" Value="Transparent"></Setter>
+            <Setter Property="Margin" Value="5,5,0,0"></Setter>
+            <Setter Property="Width" Value="150"></Setter>
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="Padding" Value="0,0,0,0"></Setter>
+            <Setter Property="FontWeight" Value="100"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="4" Background="{TemplateBinding Background}">
+                            <Grid>
+                                <Path x:Name="PathIcon" 
+                                      Width="15" 
+                                      Height="25" 
+                                      Stretch="Fill" 
+                                      Fill="{DynamicResource IcoColor}" 
+                                      HorizontalAlignment="Left" 
+                                      Margin="17,0,0,0" 
+                                      Data="F1 M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z "/>
+                                <ContentPresenter x:Name="MyContentPresenter" 
+                                                  Content="{TemplateBinding Content}" 
+                                                  HorizontalAlignment="Center" 
+                                                  VerticalAlignment="Center" 
+                                                  Margin="0,0,0,0" />
+                            </Grid>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{DynamicResource SecondaryBlueColor}"></Setter>
+                                <Setter Property="Foreground" Value="{DynamicResource PrimaryGrayColor}"></Setter>
+                            </Trigger>
+                            <Trigger Property="IsMouseCaptured" Value="False">
+                                <Setter Property="Background" Value="{DynamicResource PrimaryBlueColor}"></Setter>
+                                <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--HEADER-->
+        <Grid Grid.Row="0" 
+              Grid.Column="0"
+              Background="{StaticResource PrimaryBlueColor}">
+            <StackPanel>
+                <Label Content="Header T1" 
+                       Foreground="{StaticResource PrimaryTextColor}" 
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"/>
+                <Menu FontSize="10">
+                    <MenuItem Header="Tools">
+                        <MenuItem Header="Settings"/>
+                        <Separator/>
+                        <MenuItem Header="Close"/>
+                    </MenuItem>
+                    <MenuItem Header="Help">
+                        <MenuItem Header="About"/>
+                    </MenuItem>
+                </Menu>
+            </StackPanel>
+        </Grid>
+
+        <!--DETAIL-->
+        <Grid Grid.Row="1"
+              Grid.Column="0">
+            <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center">
+                
+            </StackPanel>
+        </Grid>
+
+        <!--END-->
+        <Grid Grid.Row="2"
+              Grid.Column="0"
+              HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <Button Style="{StaticResource ButtonStyle}" Content="A"/>
+                <Button Style="{StaticResource ButtonStyle}" Content="B"/>
+                <Button Style="{StaticResource ButtonStyle}" Content="C"/>
+                <Button Style="{StaticResource ButtonStyle}" Content="D"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

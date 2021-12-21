@@ -76,10 +76,26 @@
         <Grid Grid.Row="0" 
               Grid.Column="0"
               Background="{StaticResource PrimaryBlueColor}">
-            <Label Content="Header Trigonometry" 
-                   Foreground="{StaticResource PrimaryTextColor}" 
-                   FontWeight="Bold"
-                   HorizontalAlignment="Center"/>
+            <StackPanel>
+                <Label Content="Header Trigonometry" 
+                       Foreground="{StaticResource PrimaryTextColor}" 
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"/>
+                <Menu FontSize="10">
+                    <MenuItem Header="AAA">
+                        <MenuItem Header="Sinof" Command="{Binding SinofCommand}"/>
+                        <Separator/>
+                    </MenuItem>
+                    <MenuItem Header="BBB">
+                        <MenuItem Header="CosOf" Command="{Binding TanOfCommand}"/>
+                        <Separator/>
+                    </MenuItem>
+                    <MenuItem Header="CCC">
+                        <MenuItem Header="TanOf" Command="{Binding TanOfCommand}"/>
+                        <Separator/>
+                    </MenuItem>
+                </Menu>
+            </StackPanel>
         </Grid>
 
         <!--DETAIL-->

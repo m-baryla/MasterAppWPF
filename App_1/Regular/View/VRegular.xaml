@@ -76,13 +76,34 @@
         <Grid Grid.Row="0" 
               Grid.Column="0"
               Background="{StaticResource PrimaryBlueColor}">
-            <Label Content="Header Regular" 
-                   Foreground="{StaticResource PrimaryTextColor}" 
-                   FontWeight="Bold"
-                   HorizontalAlignment="Center"/>
+            <StackPanel>
+                <Label Content="Header Regular" 
+                       Foreground="{StaticResource PrimaryTextColor}" 
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"/>
+                <Menu FontSize="10">
+                    <MenuItem Header="AAA">
+                        <MenuItem Header="Add" Command="{Binding AddCommand}"/>
+                        <Separator/>
+                    </MenuItem>
+                    <MenuItem Header="BBB">
+                        <MenuItem Header="Substract" Command="{Binding SubstractCommand}"/>
+                        <Separator/>
+                    </MenuItem>
+                    <MenuItem Header="CCC">
+                        <MenuItem Header="Multiply" Command="{Binding MultiplyCommand}"/>
+                        <Separator/>
+                    </MenuItem>
+                    <MenuItem Header="DDD">
+                        <MenuItem Header="Divide" Command="{Binding DivideCommand}"/>
+                        <Separator/>
+                    </MenuItem>
+                </Menu>
+            </StackPanel>
         </Grid>
 
-        <!--HEADER-->
+
+        <!--DETAIL-->
         <Grid Grid.Row="1"
               Grid.Column="0">
             <StackPanel Orientation="Horizontal" 
