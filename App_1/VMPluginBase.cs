@@ -31,7 +31,7 @@ namespace App_1
         }
         public VMPluginBase(Style ButtonStyle)
         {
-            var sql = ModuleLoaderService.LoadHelperSQL<ISQL>(GetConfigService.GetPath("dllsSQL"), null);
+            var sql = ModuleLoaderService.LoadHelperSQL<ISQL>(GetConfigService.GetPath("dllsSQL"), GetConfigService.GetSqlConnectionString());
 
             var Trigonometry = UserPermissions.IsAllowed(ApplicationRoles.Trigonometry, sql);
             var Regular = UserPermissions.IsAllowed(ApplicationRoles.Regular, sql);

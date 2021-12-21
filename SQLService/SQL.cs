@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using BaseAppClass;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Principal;
@@ -12,8 +11,14 @@ using System.DirectoryServices;
 namespace SQLService
 {
     public class SQL : ISQL
-    {
-        private string _sqlConnectionString = GetConfigService.GetSqlConnectionString();
+    {       
+        private readonly string _sqlConnectionString;
+
+        public SQL(string _sqlConnectionString)
+        {
+            this._sqlConnectionString = _sqlConnectionString;
+        }
+
         public DataRow ExecuteSqlProcedureSingleRow(string procedureName, IEnumerable<Parameter> procedureParameters, int? timeoutInSeconds)
         {
             DataTable dataTable = this.ExecuteSqlProcedureTable(procedureName, procedureParameters, timeoutInSeconds);
