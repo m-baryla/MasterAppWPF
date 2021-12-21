@@ -72,49 +72,69 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!--HEADER-->
-        <Grid Grid.Row="0" 
-              Grid.Column="0"
-              Background="{StaticResource PrimaryBlueColor}">
-            <StackPanel>
+        <Grid Background="{StaticResource PrimaryBlueColor}">
+            <StackPanel Grid.Row="0" 
+                        Grid.Column="0">
                 <Label Content="Header T1" 
                        Foreground="{StaticResource PrimaryTextColor}" 
                        FontWeight="Bold"
                        HorizontalAlignment="Center"/>
-                <Menu FontSize="10">
-                    <MenuItem Header="Tools">
-                        <MenuItem Header="Settings"/>
-                        <Separator/>
-                        <MenuItem Header="Close"/>
-                    </MenuItem>
-                    <MenuItem Header="Help">
-                        <MenuItem Header="About"/>
-                    </MenuItem>
-                </Menu>
+            </StackPanel>
+        </Grid>
+
+        <!--MAIN-->
+        <Grid Background="{StaticResource PrimaryTextColor}"
+              Grid.Row="1" 
+              Grid.Column="0">
+            <StackPanel>
+                <Expander Header="Main"
+                          IsExpanded="True">
+                    <StackPanel>
+                        <Menu FontSize="10">
+                            <MenuItem Header="AAA">
+                                A
+                                <MenuItem Header="AAA1"/>
+                                <Separator/>
+                                <MenuItem Header="AAA2"/>
+                            </MenuItem>
+                            <MenuItem Header="BBB">
+                                <MenuItem Header="BBB1"/>
+                                <Separator/>
+                                <MenuItem Header="BBB2"/>
+                            </MenuItem>
+                        </Menu>
+                    </StackPanel>
+                </Expander>
             </StackPanel>
         </Grid>
 
         <!--DETAIL-->
-        <Grid Grid.Row="1"
+        <Grid Grid.Row="2"
               Grid.Column="0">
-            <StackPanel Orientation="Horizontal" 
-                        HorizontalAlignment="Center">
-                
-            </StackPanel>
+            <Expander Header="Detail"
+                      IsExpanded="True">
+                <StackPanel>
+                    <Label Content="detail......"></Label>
+                </StackPanel>
+            </Expander>
         </Grid>
 
         <!--END-->
-        <Grid Grid.Row="2"
-              Grid.Column="0"
-              HorizontalAlignment="Center">
-            <StackPanel Orientation="Horizontal">
-                <Button Style="{StaticResource ButtonStyle}" Content="A"/>
-                <Button Style="{StaticResource ButtonStyle}" Content="B"/>
-                <Button Style="{StaticResource ButtonStyle}" Content="C"/>
-                <Button Style="{StaticResource ButtonStyle}" Content="D"/>
-            </StackPanel>
+        <Grid Grid.Row="3"
+              Grid.Column="0">
+            <Expander Header="End"
+                      IsExpanded="True">
+                <StackPanel Orientation="Vertical">
+                    <Button Style="{StaticResource ButtonStyle}" Content="A"/>
+                    <Button Style="{StaticResource ButtonStyle}" Content="B"/>
+                    <Button Style="{StaticResource ButtonStyle}" Content="C"/>
+                    <Button Style="{StaticResource ButtonStyle}" Content="D"/>
+                </StackPanel>
+            </Expander>
         </Grid>
     </Grid>
 </UserControl>
