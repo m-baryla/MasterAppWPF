@@ -3,19 +3,44 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows;
+using System.Windows.Input;
 using App_2.T_1.Model;
+using BaseAppClass;
 using Interface;
 
 namespace App_2.T_1.ViewModel
 {
-    public class VMValueT1
+    public class VMValueT1 : ViewModelBaseService
     {
+        public ICommand ListBoxCommand { get; set; }
+
+        private string selectedFileObject;
+        public string SelectedFileObject
+        {
+            get { return selectedFileObject; }
+            set { if (selectedFileObject == value) return; selectedFileObject = value; OnPropertyChanged("SelectedFileObject"); }
+        }
+
+        private List<MValueT1> list_AAAA;
+        public List<MValueT1> List_AAAA
+        {
+            get { return list_AAAA; }
+            set { if (list_AAAA == value) return; list_AAAA = value; OnPropertyChanged("List_AAAA"); }
+        }
+        
         private ISQL _sql;
         public VMValueT1(ISQL _sql)
         {
             this._sql = _sql;
-            GetValueT1Model_DataTable();
+            list_AAAA = GetValueT1Model_DataTable();
+            ListBoxCommand = new RelayCommandService(_ => _ListBoxCommand());
         }
+        private void _ListBoxCommand()
+        {
+            MessageBox.Show(selectedFileObject);
+        }
+
+        #region SQL
         public List<MValueT1> GetValueT1Model_DataTable()
         {
             List<MValueT1> logs = new List<MValueT1>();
@@ -195,6 +220,8 @@ namespace App_2.T_1.ViewModel
             MessageBox.Show(Msg + ret);
             return ret >= 0;
         }
+        #endregion
+
     }
 }
 

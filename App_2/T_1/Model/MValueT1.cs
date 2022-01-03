@@ -54,5 +54,9 @@ namespace App_2.T_1.Model
             StringValue = row["StringValue"].ToString();
         }
 
+        public override string ToString()
+        {
+            return StringValue + System.Environment.NewLine + DateTimeValue.ToString();
+        }
     }
 }

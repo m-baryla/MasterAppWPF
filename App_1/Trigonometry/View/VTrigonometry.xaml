@@ -13,6 +13,7 @@
         <SolidColorBrush x:Key="PrimaryGrayColor" Color="#BBC1D1"></SolidColorBrush>
         <SolidColorBrush x:Key="ContentBackgroundColor" Color="#FFFFFF"></SolidColorBrush>
         <SolidColorBrush x:Key="IcoColor" Color="#4C87B3"></SolidColorBrush>
+        <SolidColorBrush x:Key="HeaderGroupBox" Color="#000000"></SolidColorBrush>
         <!-- Button Style -->
         <Style x:Name ="ButtonStyle" x:Key="ButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="Background" Value="Transparent"></Setter>
@@ -62,6 +63,7 @@
             </Setter>
         </Style>
     </UserControl.Resources>
+
     <Grid Margin="5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -74,74 +76,76 @@
         </Grid.RowDefinitions>
 
         <!--HEADER-->
-        <Grid Background="{StaticResource PrimaryBlueColor}">
-            <StackPanel Grid.Row="0" 
-                        Grid.Column="0">
-                <Label Content="Header Trigonometry" 
-                       Foreground="{StaticResource PrimaryTextColor}" 
-                       FontWeight="Bold"
-                       HorizontalAlignment="Center"/>
-            </StackPanel>
+        <Grid Background="{StaticResource PrimaryBlueColor}"
+              Grid.Row="0" 
+              Grid.Column="0">
+            <Label Content="Header Trigonometry" 
+                   Foreground="{StaticResource PrimaryTextColor}" 
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"/>
         </Grid>
 
         <!--MAIN-->
         <Grid Background="{StaticResource PrimaryTextColor}"
               Grid.Row="1" 
               Grid.Column="0">
-            <StackPanel>
-                <Expander Header="Main"
-                          IsExpanded="True">
-                    <StackPanel>
-                        <Menu FontSize="10">
-                            <MenuItem Header="AAA">
-                                <MenuItem Header="Sinof" Command="{Binding SinofCommand}"/>
-                                <Separator/>
-                            </MenuItem>
-                            <MenuItem Header="BBB">
-                                <MenuItem Header="CosOf" Command="{Binding TanOfCommand}"/>
-                                <Separator/>
-                            </MenuItem>
-                            <MenuItem Header="CCC">
-                                <MenuItem Header="TanOf" Command="{Binding TanOfCommand}"/>
-                                <Separator/>
-                            </MenuItem>
-                        </Menu>
-                    </StackPanel>
-                </Expander>
-            </StackPanel>
+            <Menu FontSize="10">
+                <MenuItem Header="AAA">
+                    <MenuItem Header="Sinof" Command="{Binding SinofCommand}"/>
+                    <Separator/>
+                </MenuItem>
+                <MenuItem Header="BBB">
+                    <MenuItem Header="CosOf" Command="{Binding TanOfCommand}"/>
+                    <Separator/>
+                </MenuItem>
+                <MenuItem Header="CCC">
+                    <MenuItem Header="TanOf" Command="{Binding TanOfCommand}"/>
+                    <Separator/>
+                </MenuItem>
+            </Menu>
         </Grid>
 
         <!--DETAIL-->
         <Grid Grid.Row="2"
               Grid.Column="0">
-            <Expander Header="Detail"
-                      IsExpanded="True">
-                <StackPanel Orientation="Horizontal" 
-                            HorizontalAlignment="Center">
-                    <TextBox Text="{Binding X}" 
-                             Height="30" 
-                             Width="100" 
-                             PreviewTextInput="AllowOnlyNumbers"/>
-                    <TextBox Text="{Binding Result}" 
-                             IsEnabled="False"/>
-                </StackPanel>
-            </Expander>
+            <GroupBox Header="Detail"
+                      Background="{StaticResource ContentBackgroundColor}" 
+                      Foreground="{StaticResource HeaderGroupBox}">
+                <Expander IsExpanded="True"
+                          Header="Detail111"
+                          Foreground="{StaticResource HeaderGroupBox}">
+                    <StackPanel Orientation="Horizontal" 
+                                HorizontalAlignment="Center">
+                        <TextBox Text="{Binding X}" 
+                                 Height="30" 
+                                 Width="100" 
+                                 PreviewTextInput="AllowOnlyNumbers"/>
+                        <TextBox Text="{Binding Result}" 
+                                 IsEnabled="False"/>
+                        <Button Style="{StaticResource ButtonStyle}" Content="Next" Command="{Binding Next}"/>
+                        <Button Style="{StaticResource ButtonStyle}" Content="Previous" Command="{Binding Previous}"/>
+                    </StackPanel>
+                </Expander>
+            </GroupBox>
         </Grid>
 
         <!--END-->
         <Grid Grid.Row="3"
               Grid.Column="0">
-            <Expander Header="End"
-                      IsExpanded="True">
-                <StackPanel Orientation="Horizontal"
-                            HorizontalAlignment="Center">
-                    <Button Style="{StaticResource ButtonStyle}" Content="Sinof" Command="{Binding SinofCommand}"/>
-                    <Button Style="{StaticResource ButtonStyle}" Content="CosOf" Command="{Binding CosOfCommand}"/>
-                    <Button Style="{StaticResource ButtonStyle}" Content="TanOf" Command="{Binding TanOfCommand}"/>
-                </StackPanel>
-            </Expander>
+            <GroupBox Header="End"
+                      Background="{StaticResource ContentBackgroundColor}" 
+                      Foreground="{StaticResource HeaderGroupBox}">
+                <Expander IsExpanded="True"
+                          Header="End1111"
+                          Foreground="{StaticResource HeaderGroupBox}">
+                    <StackPanel Orientation="Vertical">
+                        <Button Style="{StaticResource ButtonStyle}" Content="Sinof" Command="{Binding SinofCommand}"/>
+                        <Button Style="{StaticResource ButtonStyle}" Content="CosOf" Command="{Binding CosOfCommand}"/>
+                        <Button Style="{StaticResource ButtonStyle}" Content="TanOf" Command="{Binding TanOfCommand}"/>
+                    </StackPanel>
+                </Expander>
+            </GroupBox>
         </Grid>
-
     </Grid>
 
 </UserControl>
