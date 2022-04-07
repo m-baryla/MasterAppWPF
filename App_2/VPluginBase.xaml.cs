@@ -12,12 +12,12 @@ namespace App_2
     /// </summary>
     public partial class VPluginBase : UserControl, IPlugger
     {
-        public VPluginBase()
+        public VPluginBase(ISQL sql)
         {
             InitializeComponent();
-            DataContext = new VMPluginBase(Resources["ButtonStyle"] as Style);
+            DataContext = new VMPluginBase(Resources["ButtonStyle"] as Style, sql);
         }
-        public string PluggerName { get; set; } = "PluginBaseApp2";
+        public string PluggerName { get; set; } = "PluginBaseApp2"; 
         public UserControl GetPlugger() => this;
     }
 }

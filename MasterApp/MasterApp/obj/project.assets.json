@@ -159,6 +159,22 @@
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WPF"
         ]
+      },
+      "ModuleLoader/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Interface": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ModuleLoader.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ModuleLoader.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       }
     }
   },
@@ -485,11 +501,17 @@
       "type": "project",
       "path": "../../Interface/Interface.csproj",
       "msbuildProject": "../../Interface/Interface.csproj"
+    },
+    "ModuleLoader/1.0.0": {
+      "type": "project",
+      "path": "../../ModuleLoader/ModuleLoader.csproj",
+      "msbuildProject": "../../ModuleLoader/ModuleLoader.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
       "BaseAppClass >= 1.0.0",
+      "ModuleLoader >= 1.0.0",
       "System.Data.SqlClient >= 4.8.3"
     ]
   },
@@ -530,6 +552,9 @@
           "projectReferences": {
             "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\BaseAppClass\\BaseAppClass.csproj": {
               "projectPath": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\BaseAppClass\\BaseAppClass.csproj"
+            },
+            "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\ModuleLoader\\ModuleLoader.csproj": {
+              "projectPath": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\ModuleLoader\\ModuleLoader.csproj"
             }
           }
         }

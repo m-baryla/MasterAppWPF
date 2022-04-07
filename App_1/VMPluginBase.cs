@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Input;
 using App_1.Regular.Model;
 using App_1.Regular.View;
 using App_1.Regular.ViewModel;
@@ -16,10 +13,8 @@ namespace App_1
 {
     public class VMPluginBase : ViewModelBaseService
     {
-        public VMPluginBase(Style ButtonStyle)
+        public VMPluginBase(Style ButtonStyle, ISQL sql)
         {
-            var sql = ModuleLoaderService.LoadHelperSQL<ISQL>(GetConfigService.GetPath("dllsSQL"), GetConfigService.GetSqlConnectionString());
-
             var Trigonometry = UserPermissions.IsAllowed(ApplicationRoles.Trigonometry, sql);
             var Regular = UserPermissions.IsAllowed(ApplicationRoles.Regular, sql);
 

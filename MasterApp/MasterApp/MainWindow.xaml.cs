@@ -2,6 +2,8 @@
 using System.IO;
 using System.Windows;
 using BaseAppClass;
+using Interface;
+using ModuleLoader;
 
 namespace MasterApp
 {
@@ -13,7 +15,9 @@ namespace MasterApp
         public MainWindow()
         {
             InitializeComponent();
-            AvailablePluginService.Init(tabPlugs);
+            var sql = ModuleLoaderService.LoadHelperSQL<ISQL>(GetConfigService.GetPath("SQLService"), GetConfigService.GetSqlConnectionString());
+            var availablePluginService = ModuleLoaderService.LoadAvailablePluginService<IAvailablePluginService>(GetConfigService.GetPath("ModuleLoader"), sql);
+            availablePluginService.Init(tabPlugs);
         }
     }
 }

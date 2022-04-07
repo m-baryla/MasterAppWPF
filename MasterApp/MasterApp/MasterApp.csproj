@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\BaseAppClass\BaseAppClass.csproj" />
+    <ProjectReference Include="..\..\ModuleLoader\ModuleLoader.csproj" />
   </ItemGroup>
 
 </Project>

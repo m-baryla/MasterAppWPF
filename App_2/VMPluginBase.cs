@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 using App_2.T_1.View;
 using App_2.T_1.ViewModel;
 using App_2.T_2.View;
@@ -14,10 +12,8 @@ namespace App_2
 {
     public class VMPluginBase : ViewModelBaseService
     {
-        public VMPluginBase(Style ButtonStyle)
+        public VMPluginBase(Style ButtonStyle,ISQL sql)
         {
-            var sql = ModuleLoaderService.LoadHelperSQL<ISQL>(GetConfigService.GetPath("dllsSQL"), GetConfigService.GetSqlConnectionString());
-
             var T_1 = UserPermissions.IsAllowed(ApplicationRoles.T_1, sql);
             var T_2 = UserPermissions.IsAllowed(ApplicationRoles.T_2, sql);
 

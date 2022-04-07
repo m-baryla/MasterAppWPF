@@ -1,21 +1,24 @@
 ﻿using System;
+using System.Configuration;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using Interface;
 
-namespace BaseAppClass
+namespace ModuleLoader
 {
-    public class AvailablePluginService
+    public class AvailablePluginService : IAvailablePluginService
     {
-        public static void Init(TabControl tabPlugs)
+        private ISQL sql;  
+        public AvailablePluginService(ISQL sql)
         {
-            AvailablePluginService availablePlugin = new AvailablePluginService();
-            availablePlugin.LoadView(tabPlugs, GetConfigService.GetPath("dllsPath"));
+            this.sql = sql;
+        }
+        public void Init(TabControl tabPlugs)
+        {
+            AvailablePluginService availablePlugin = new AvailablePluginService(sql);
+            availablePlugin.LoadView(tabPlugs, GetPath("PluginPath"));
         }
         private string GetPluggerDll(string connect)
         {
@@ -37,7 +40,7 @@ namespace BaseAppClass
                 var connectors = Directory.GetDirectories(plugName);
                 foreach (var connect in connectors)
                 {
-                    var pluginDynamicDLL = ModuleLoaderService.LoadPlugger<IPlugger>(GetPluggerDll(connect), null);
+                    var pluginDynamicDLL = ModuleLoaderService.LoadPlugger<IPlugger>(GetPluggerDll(connect), sql);
 
                     TabItem button = new TabItem
                     {
@@ -51,6 +54,10 @@ namespace BaseAppClass
             {
                 MessageBox.Show(ex.Message, "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+        private static string GetPath(string key)
+        {
+            return Directory.GetParent(Directory.GetCurrentDirectory())?.Parent.Parent.Parent.FullName + ConfigurationManager.AppSettings.Get(key);
         }
     }
 }
