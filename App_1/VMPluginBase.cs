@@ -16,19 +16,6 @@ namespace App_1
 {
     public class VMPluginBase : ViewModelBaseService
     {
-        private object _currentWorkspace;
-        public object CurrentWorkspace
-        {
-            get { return this._currentWorkspace; }
-            set { this._currentWorkspace = value; OnPropertyChanged("CurrentWorkspace"); }
-        }
-
-        private List<Button> buttonsList;
-        public List<Button> ButtonsList
-        {
-            get { return buttonsList; }
-            set { if (buttonsList == value) return; buttonsList = value; OnPropertyChanged("ButtonsList"); }
-        }
         public VMPluginBase(Style ButtonStyle)
         {
             var sql = ModuleLoaderService.LoadHelperSQL<ISQL>(GetConfigService.GetPath("dllsSQL"), GetConfigService.GetSqlConnectionString());
