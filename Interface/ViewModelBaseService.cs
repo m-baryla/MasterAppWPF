@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Controls;
 
-namespace BaseAppClass
+namespace Interface
 {
     public abstract class ViewModelBaseService : INotifyPropertyChanged
     {

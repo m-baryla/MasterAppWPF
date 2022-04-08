@@ -1,11 +1,8 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using App_2.T_1.ViewModel;
-using BaseAppClass;
 using Interface;
 
-namespace App_2
+namespace App_2.BaseClass
 {
     /// <summary>
     /// Interaction logic for VPluginBase.xaml

@@ -131,22 +131,6 @@
           }
         }
       },
-      "BaseAppClass/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "Interface": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/BaseAppClass.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/BaseAppClass.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App.WPF"
-        ]
-      },
       "Interface/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -492,11 +476,6 @@
         "version.txt"
       ]
     },
-    "BaseAppClass/1.0.0": {
-      "type": "project",
-      "path": "../../BaseAppClass/BaseAppClass.csproj",
-      "msbuildProject": "../../BaseAppClass/BaseAppClass.csproj"
-    },
     "Interface/1.0.0": {
       "type": "project",
       "path": "../../Interface/Interface.csproj",
@@ -510,7 +489,6 @@
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
-      "BaseAppClass >= 1.0.0",
       "ModuleLoader >= 1.0.0",
       "System.Data.SqlClient >= 4.8.3"
     ]
@@ -550,9 +528,6 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\BaseAppClass\\BaseAppClass.csproj": {
-              "projectPath": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\BaseAppClass\\BaseAppClass.csproj"
-            },
             "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\ModuleLoader\\ModuleLoader.csproj": {
               "projectPath": "D:\\SOURCE\\_MySource\\[PLATFORM] .NET 5.0\\[PROJECTS] WPF\\_MasterApp\\ModuleLoader\\ModuleLoader.csproj"
             }

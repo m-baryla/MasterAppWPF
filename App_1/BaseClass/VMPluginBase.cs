@@ -6,10 +6,9 @@ using App_1.Regular.View;
 using App_1.Regular.ViewModel;
 using App_1.Trigonometry.View;
 using App_1.Trigonometry.ViewModel;
-using BaseAppClass;
 using Interface;
 
-namespace App_1
+namespace App_1.BaseClass
 {
     public class VMPluginBase : ViewModelBaseService
     {

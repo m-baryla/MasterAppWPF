@@ -4,8 +4,8 @@ using System.Data;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using App_2.BaseClass;
 using App_2.T_1.Model;
-using BaseAppClass;
 using Interface;
 
 namespace App_2.T_1.ViewModel

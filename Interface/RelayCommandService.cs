@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Windows.Input;
 
-namespace BaseAppClass
+namespace Interface
 {
     public class RelayCommandService : ICommand
     {
@@ -31,4 +31,5 @@ namespace BaseAppClass
 
         public void Execute(object parameter) => this._execute(parameter);
     }
+
 }

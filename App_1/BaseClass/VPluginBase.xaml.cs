@@ -1,9 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using BaseAppClass;
 using Interface;
 
-namespace App_1
+namespace App_1.BaseClass
 {
     /// <summary>
     /// Interaction logic for VPluginBase.xaml

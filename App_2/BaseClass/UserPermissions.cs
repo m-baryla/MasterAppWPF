@@ -1,7 +1,7 @@
-﻿using Interface;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Interface;
 
-namespace App_2
+namespace App_2.BaseClass
 {
     static class UserPermissions
     {

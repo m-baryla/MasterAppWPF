@@ -5,10 +5,9 @@ using App_2.T_1.View;
 using App_2.T_1.ViewModel;
 using App_2.T_2.View;
 using App_2.T_2.ViewModel;
-using BaseAppClass;
 using Interface;
 
-namespace App_2
+namespace App_2.BaseClass
 {
     public class VMPluginBase : ViewModelBaseService
     {

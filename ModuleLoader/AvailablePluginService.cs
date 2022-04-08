@@ -22,11 +22,12 @@ namespace ModuleLoader
         }
         private string GetPluggerDll(string connect)
         {
-            var files = Directory.GetFiles(connect + @"\net5.0-windows", "*.dll");
+            //@"\net5.0-windows"
+            var files = Directory.GetFiles(connect, "*.dll");
             foreach (var file in files)
             {
                 var productName = FileVersionInfo.GetVersionInfo(file).ProductName;
-                if (productName != null && productName.StartsWith("Calci"))
+                if (productName != null && productName.StartsWith("_MBA"))
                     return file;
             }
             return string.Empty;
