@@ -1,10 +1,11 @@
+﻿using System.Collections.ObjectModel;
 using System.Windows.Controls;
 
 namespace Interface
 {
     public interface IPlugger
     {
-        string PluggerName { get; set; }
-        UserControl GetPlugger();
+        public string PluginName { get; set; }
+        UserControl PluginControl();
     }
 }

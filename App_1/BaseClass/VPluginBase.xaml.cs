@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Controls;
 using Interface;
 
@@ -12,9 +13,9 @@ namespace App_1.BaseClass
         public VPluginBase(ISQL sql)
         {
             InitializeComponent();
-            DataContext = new VMPluginBase(Resources["ButtonStyle"] as Style,sql);
+            DataContext = new VMPluginBase(Resources["ButtonStyle"] as Style, sql);
         }
-        public string PluggerName { get; set; } = "PluginBaseApp1";
-        public UserControl GetPlugger() => this;
+        public string PluginName { get; set; } = "PluginBaseApp1";
+        public UserControl PluginControl() => this;
     }
 }

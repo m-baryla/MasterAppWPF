@@ -36,10 +36,29 @@
             </TabControl>
         </StackPanel>
 
-        <Label Content="Label" 
-               Grid.Column="0" 
-               Grid.Row="2">
-        </Label>
+       
+        <!--<ListView Grid.Row="2" Grid.Column="0" HorizontalContentAlignment="Stretch"
+                  ItemsSource="{Binding ElementName=TreeViewListView, Path=SelectedItem.DataContext.PluginInstance.Top3LogMessages}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" TextWrapping="Wrap" Margin="2">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Background" Value="#FFF0FAFF"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Type}" Value="1">
+                                        <Setter Property="Background" Value="#FFFDFD96"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Type}" Value="2">
+                                        <Setter Property="Background" Value="#FFFF6961"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->
 
     </Grid>
 </Window>

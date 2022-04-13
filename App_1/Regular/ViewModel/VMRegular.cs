@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using System.Windows;
 using System.Windows.Input;
+using App_1.BaseClass;
 using App_1.Regular.Model;
 using Interface;
 
@@ -43,17 +44,23 @@ namespace App_1.Regular.ViewModel
         {
             Result = X + Y;
             _ = MessageBox.Show(Result.ToString(CultureInfo.InvariantCulture));
+            VMPluginBase.ExampleMessages.AddLogMessage("11111 " + 123444, LogMessageType.Normal);
+
         }
 
         private void _Substract()
         {
             Result = X - Y;
             _ = MessageBox.Show(Result.ToString(CultureInfo.InvariantCulture));
+            VMPluginBase.ExampleMessages.AddLogMessage("22222 " + 123444, LogMessageType.Warning);
+
         }
 
         private void _Multiply()
         {
-            Result = X * Y;   
+            Result = X * Y;
+            VMPluginBase.ExampleMessages.AddLogMessage("333333 " + 123444, LogMessageType.Error);
+
             MessageBox.Show(Result.ToString(CultureInfo.InvariantCulture));
         }
 
@@ -61,6 +68,8 @@ namespace App_1.Regular.ViewModel
         {
             Result = X / Y;
             _ = MessageBox.Show(Result.ToString(CultureInfo.InvariantCulture));
+            VMPluginBase.ExampleMessages.AddLogMessage("444444 " + 123444, LogMessageType.Normal);
+
         }
     }
 }

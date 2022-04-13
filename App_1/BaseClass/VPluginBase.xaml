@@ -59,13 +59,38 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    
+
     <DockPanel LastChildFill="True">
         <StackPanel DockPanel.Dock="Left">
             <ItemsControl ItemsSource="{Binding ButtonsList}"></ItemsControl>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Bottom">
+            <ListView HorizontalContentAlignment="Stretch" Height="80"
+                      ItemsSource="{Binding Top3LogMessages}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" TextWrapping="Wrap" Margin="2" FontStyle="Italic">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Background" Value="#FFF0FAFF"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Type}" Value="1">
+                                            <Setter Property="Background" Value="#FFFDFD96"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Type}" Value="2">
+                                            <Setter Property="Background" Value="#FFFF6961"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackPanel>
         <StackPanel Background="{DynamicResource ContentBackgroundColor}">
             <ContentControl Content="{Binding CurrentWorkspace}" />
         </StackPanel>
     </DockPanel>
+
 </UserControl>

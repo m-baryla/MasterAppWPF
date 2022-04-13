@@ -47,6 +47,11 @@ namespace App_2.T_1.ViewModel
             var dt = _sql.ExecuteSqlProcedureTable("[SQL_].[GetValueT1Model_DataTable]");
             foreach (DataRow row in dt.Rows)
                 logs.Add(new MValueT1(row));
+
+            VMPluginBase.ExampleMessages.AddLogMessage("Test_1 " + 123444, LogMessageType.Normal);
+            VMPluginBase.ExampleMessages.AddLogMessage("Test_2 " + 123444, LogMessageType.Error);
+            VMPluginBase.ExampleMessages.AddLogMessage("Test_3 " + 123444, LogMessageType.Warning);
+
             return logs;
         }
         public List<string> GetValueT1Model_DataTable_WithParametr(int IntValue)

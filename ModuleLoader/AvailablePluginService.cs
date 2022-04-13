@@ -45,8 +45,8 @@ namespace ModuleLoader
 
                     TabItem button = new TabItem
                     {
-                        Header = pluginDynamicDLL.PluggerName,
-                        Content = pluginDynamicDLL.GetPlugger(),
+                        Header = pluginDynamicDLL.PluginName,
+                        Content = pluginDynamicDLL.PluginControl(),
                     };
                     tabPlugs.Items.Add(button);
                 }
