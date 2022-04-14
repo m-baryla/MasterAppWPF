@@ -48,9 +48,10 @@ namespace App_2.T_1.ViewModel
             foreach (DataRow row in dt.Rows)
                 logs.Add(new MValueT1(row));
 
-            VMPluginBase.ExampleMessages.AddLogMessage("Test_1 " + 123444, LogMessageType.Normal);
-            VMPluginBase.ExampleMessages.AddLogMessage("Test_2 " + 123444, LogMessageType.Error);
-            VMPluginBase.ExampleMessages.AddLogMessage("Test_3 " + 123444, LogMessageType.Warning);
+            ExampleMessages.AddLogMessage("Test_1 " + 123444, LogMessageType.Normal);
+            ExampleMessages.AddLogMessage("Test_2 " + 123444, LogMessageType.Error);
+            ExampleMessages.AddLogMessage("Test_3 " + 123444, LogMessageType.Warning);
+            //ExampleMessages.AddLogMessage(msg, res == -1 ? LogMessageType.Warning : LogMessageType.Error);
 
             return logs;
         }

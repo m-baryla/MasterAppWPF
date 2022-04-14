@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1600">
+        Title="MainWindow" Height="800" Width="1600"
+        WindowStartupLocation="CenterScreen">
     <Grid Background="{StaticResource AppBackgroundColor}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -12,7 +13,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="120"/>
         </Grid.RowDefinitions>
 
         <Menu FontSize="10" 
@@ -24,41 +25,50 @@
                 <MenuItem Header="Close"/>
             </MenuItem>
             <MenuItem Header="Help">
-                <MenuItem Header="About"/>
+                <MenuItem Header="About" Command="{Binding AboutCommand}"/>
             </MenuItem>
         </Menu>
 
-        <StackPanel Grid.Column="0" 
-                    Grid.Row="1">
-            <TabControl Name="tabPlugs"
-                        ItemContainerStyle="{StaticResource TabItemStyle}"
-                        Style="{StaticResource TabControlStyle}">
-            </TabControl>
-        </StackPanel>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                      Grid.Column="0" 
+                      Grid.Row="1">
+            <StackPanel>
+                <TabControl Name="tabPlugs"
+                            ItemContainerStyle="{StaticResource TabItemStyle}"
+                            Style="{StaticResource TabControlStyle}">
+                </TabControl>
+            </StackPanel>
+        </ScrollViewer>
 
-       
-        <!--<ListView Grid.Row="2" Grid.Column="0" HorizontalContentAlignment="Stretch"
-                  ItemsSource="{Binding ElementName=TreeViewListView, Path=SelectedItem.DataContext.PluginInstance.Top3LogMessages}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding}" TextWrapping="Wrap" Margin="2">
-                        <TextBlock.Style>
-                            <Style TargetType="TextBlock">
-                                <Setter Property="Background" Value="#FFF0FAFF"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding Type}" Value="1">
-                                        <Setter Property="Background" Value="#FFFDFD96"/>
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding Type}" Value="2">
-                                        <Setter Property="Background" Value="#FFFF6961"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>-->
+        <StackPanel Grid.Column="0" Grid.Row="2">
+            <ListView HorizontalContentAlignment="Stretch" 
+                      ItemsSource="{Binding Top4LogMessages}"
+                      Height="100"
+                      Margin="10">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" TextWrapping="Wrap" Margin="2" FontStyle="Italic">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Background" Value="#FFF0FAFF"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Type}" Value="1">
+                                            <Setter Property="Background" Value="#FFFDFD96"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Type}" Value="2">
+                                            <Setter Property="Background" Value="#FFFF6961"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Type}" Value="3">
+                                            <Setter Property="Background" Value="#98ffb5"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
 
     </Grid>
 </Window>

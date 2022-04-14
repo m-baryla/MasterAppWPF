@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Controls;
 
 namespace Interface
@@ -33,6 +35,21 @@ namespace Interface
             {
                 handler(this, e);
             }
+        }
+        public static ObservableCollection<LogMessage> ExampleMessages { get; set; }
+        private LogMessage[] _top4LogMessages;
+        public LogMessage[] Top4LogMessages
+        {
+            get { return _top4LogMessages; }
+            set
+            {
+                _top4LogMessages = value;
+                OnPropertyChanged("Top4LogMessages");
+            }
+        }
+        public void LogMessages_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            Top4LogMessages = ExampleMessages.Reverse().Take(4).ToArray();
         }
     }
 }

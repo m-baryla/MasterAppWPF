@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Input;
 using App_1.BaseClass;
@@ -44,7 +45,8 @@ namespace App_1.Regular.ViewModel
         {
             Result = X + Y;
             _ = MessageBox.Show(Result.ToString(CultureInfo.InvariantCulture));
-            VMPluginBase.ExampleMessages.AddLogMessage("11111 " + 123444, LogMessageType.Normal);
+            VMPluginBase.ExampleMessages.AddLogMessage("Normal " + 99999999, LogMessageType.Normal);
+            VMPluginBase.ExampleMessages.AddLogMessage("asdasdaa", Result == 6 ? LogMessageType.Warning : LogMessageType.Error);
 
         }
 
@@ -52,14 +54,13 @@ namespace App_1.Regular.ViewModel
         {
             Result = X - Y;
             _ = MessageBox.Show(Result.ToString(CultureInfo.InvariantCulture));
-            VMPluginBase.ExampleMessages.AddLogMessage("22222 " + 123444, LogMessageType.Warning);
-
+            ExampleMessages.AddLogMessage("Warning " + 99999999, LogMessageType.Warning);
         }
 
         private void _Multiply()
         {
             Result = X * Y;
-            VMPluginBase.ExampleMessages.AddLogMessage("333333 " + 123444, LogMessageType.Error);
+            VMPluginBase.ExampleMessages.AddLogMessage("Error " + 99999999, LogMessageType.Error);
 
             MessageBox.Show(Result.ToString(CultureInfo.InvariantCulture));
         }
@@ -68,7 +69,7 @@ namespace App_1.Regular.ViewModel
         {
             Result = X / Y;
             _ = MessageBox.Show(Result.ToString(CultureInfo.InvariantCulture));
-            VMPluginBase.ExampleMessages.AddLogMessage("444444 " + 123444, LogMessageType.Normal);
+            VMPluginBase.ExampleMessages.AddLogMessage("Info " + 99999999, LogMessageType.Info);
 
         }
     }

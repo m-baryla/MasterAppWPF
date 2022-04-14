@@ -24,5 +24,5 @@ namespace Interface
         }
     }
 
-    public enum LogMessageType { Normal, Warning, Error }
+    public enum LogMessageType { Normal, Warning, Error,Info }
 }

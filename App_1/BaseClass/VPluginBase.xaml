@@ -12,7 +12,6 @@
         <SolidColorBrush x:Key="SecondaryTextColor" Color="#BBC1D1"></SolidColorBrush>
         <SolidColorBrush x:Key="PrimaryGrayColor" Color="#BBC1D1"></SolidColorBrush>
         <SolidColorBrush x:Key="ContentBackgroundColor" Color="#FFFFFF"></SolidColorBrush>
-        <SolidColorBrush x:Key="IcoColor" Color="#4C87B3"></SolidColorBrush>
         <!-- Button Style -->
         <Style x:Name ="ButtonStyle" x:Key="ButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="Background" Value="Transparent"></Setter>
@@ -28,14 +27,6 @@
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border CornerRadius="4" Background="{TemplateBinding Background}">
                             <Grid>
-                                <!--<Path x:Name="PathIcon" 
-                                      Width="15" 
-                                      Height="25" 
-                                      Stretch="Fill" 
-                                      Fill="{DynamicResource IcoColor}" 
-                                      HorizontalAlignment="Left" 
-                                      Margin="17,0,0,0" 
-                                      Data="F1 M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z "/>-->
                                 <ContentPresenter x:Name="MyContentPresenter" 
                                                   Content="{TemplateBinding Content}" 
                                                   HorizontalAlignment="Center" 
@@ -59,38 +50,12 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-
     <DockPanel LastChildFill="True">
         <StackPanel DockPanel.Dock="Left">
             <ItemsControl ItemsSource="{Binding ButtonsList}"></ItemsControl>
-        </StackPanel>
-        <StackPanel DockPanel.Dock="Bottom">
-            <ListView HorizontalContentAlignment="Stretch" Height="80"
-                      ItemsSource="{Binding Top3LogMessages}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding}" TextWrapping="Wrap" Margin="2" FontStyle="Italic">
-                            <TextBlock.Style>
-                                <Style TargetType="TextBlock">
-                                    <Setter Property="Background" Value="#FFF0FAFF"/>
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding Type}" Value="1">
-                                            <Setter Property="Background" Value="#FFFDFD96"/>
-                                        </DataTrigger>
-                                        <DataTrigger Binding="{Binding Type}" Value="2">
-                                            <Setter Property="Background" Value="#FFFF6961"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBlock.Style>
-                        </TextBlock>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
         </StackPanel>
         <StackPanel Background="{DynamicResource ContentBackgroundColor}">
             <ContentControl Content="{Binding CurrentWorkspace}" />
         </StackPanel>
     </DockPanel>
-
 </UserControl>

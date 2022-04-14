@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Interface
 {
-    public static class Extensions
+    public static class LogMessageExtensions
     {
         /// <summary>
         ///  Adds message to collection.
@@ -15,8 +15,7 @@ namespace Interface
         /// <param name="collection">Collection to which add LogMessage.</param>
         /// <param name="message">Message to add.</param>
         /// <param name="type">Type of message.</param>
-        public static void AddLogMessage(this ObservableCollection<LogMessage> collection, string message,
-            LogMessageType type)
+        public static void AddLogMessage(this ObservableCollection<LogMessage> collection, string message, LogMessageType type)
         {
             if (string.IsNullOrWhiteSpace(message))
                 return;
