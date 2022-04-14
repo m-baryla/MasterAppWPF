@@ -1,7 +1,6 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using Interface;
+using BaseClassApp.Interface;
 
 namespace App_2.BaseClass
 {

@@ -1,8 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using System.Windows.Controls;
 using System.Windows.Input;
-using App_1.Regular.Model;
-using App_1.Regular.ViewModel;
 
 namespace App_1.Regular.View
 {

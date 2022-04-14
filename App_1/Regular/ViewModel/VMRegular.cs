@@ -1,10 +1,10 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Windows;
 using System.Windows.Input;
 using App_1.BaseClass;
 using App_1.Regular.Model;
-using Interface;
+using BaseClassApp;
+using BaseClassApp.LogService;
 
 namespace App_1.Regular.ViewModel
 {

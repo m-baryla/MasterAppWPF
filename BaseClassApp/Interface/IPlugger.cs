@@ -1,7 +1,6 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
-namespace Interface
+namespace BaseClassApp.Interface
 {
     public interface IPlugger
     {

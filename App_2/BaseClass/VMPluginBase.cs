@@ -1,14 +1,12 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using App_2.T_1.View;
 using App_2.T_1.ViewModel;
 using App_2.T_2.View;
 using App_2.T_2.ViewModel;
-using Interface;
+using BaseClassApp;
+using BaseClassApp.Interface;
 
 namespace App_2.BaseClass
 {

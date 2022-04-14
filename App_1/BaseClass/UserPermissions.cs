@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Interface;
+using BaseClassApp.Interface;
 
 namespace App_1.BaseClass
 {
@@ -8,9 +8,9 @@ namespace App_1.BaseClass
         private static Dictionary<ApplicationRoles, bool> _permissionsDict = new Dictionary<ApplicationRoles, bool>();
         public static bool IsAllowed(ApplicationRoles appRole,ISQL sql)
         {
-            #if DEBUG
-            return true;
-            #endif
+            //#if DEBUG
+            //return true;
+            //#endif
 
             if (!_permissionsDict.ContainsKey(ApplicationRoles.Admin))
                 _permissionsDict[ApplicationRoles.Admin] = sql.GetUserPermissionLogin("SQL_.GetUserPermissions_App_1", ApplicationRoles.Admin.ToString());

@@ -1,12 +1,12 @@
-﻿namespace Interface
+﻿namespace BaseClassApp
 {
-    public class Parameter
+    public class SQLParameter
     {
         public string Name { get; }
 
         public object Value { get; set; }
 
-        public Parameter(string name, object value)
+        public SQLParameter(string name, object value)
         {
             this.Name = name;
             this.Value = value;

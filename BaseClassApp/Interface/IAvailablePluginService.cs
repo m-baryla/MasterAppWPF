@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace Interface
+namespace BaseClassApp.Interface
 {
     public interface IAvailablePluginService
     {

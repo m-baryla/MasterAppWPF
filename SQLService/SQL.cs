@@ -1,11 +1,11 @@
-﻿using Interface;
+﻿using BaseClassApp.Interface;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Principal;
-using System.DirectoryServices;
+using BaseClassApp;
 
 
 namespace SQLService
@@ -19,27 +19,27 @@ namespace SQLService
             this._sqlConnectionString = _sqlConnectionString;
         }
 
-        public DataRow ExecuteSqlProcedureSingleRow(string procedureName, IEnumerable<Parameter> procedureParameters, int? timeoutInSeconds)
+        public DataRow ExecuteSqlProcedureSingleRow(string procedureName, IEnumerable<SQLParameter> procedureParameters, int? timeoutInSeconds)
         {
             DataTable dataTable = this.ExecuteSqlProcedureTable(procedureName, procedureParameters, timeoutInSeconds);
             if (dataTable.Rows.Count != 1)
                 throw new ArgumentException(procedureName);
             return dataTable.Rows[0];
         }
-        public DataRow ExecuteSqlProcedureSingleRow(string procedureName, params Parameter[] procedureParameters)
+        public DataRow ExecuteSqlProcedureSingleRow(string procedureName, params SQLParameter[] procedureParameters)
         {
-            return this.ExecuteSqlProcedureSingleRow(procedureName, (IEnumerable<Parameter>)procedureParameters, new int?());
+            return this.ExecuteSqlProcedureSingleRow(procedureName, (IEnumerable<SQLParameter>)procedureParameters, new int?());
         }
-        public DataTable ExecuteSqlProcedureTable(string ProcedureName, params Parameter[] procedureParameters)
+        public DataTable ExecuteSqlProcedureTable(string ProcedureName, params SQLParameter[] procedureParameters)
         {
-            return this.ExecuteSqlProcedureTable(ProcedureName, (IEnumerable<Parameter>)procedureParameters, new int?());
+            return this.ExecuteSqlProcedureTable(ProcedureName, (IEnumerable<SQLParameter>)procedureParameters, new int?());
         }
-        public DataTable ExecuteSqlProcedureTable(string procedureName, IEnumerable<Parameter> procedureParameters, int? timeoutInSeconds)
+        public DataTable ExecuteSqlProcedureTable(string procedureName, IEnumerable<SQLParameter> procedureParameters, int? timeoutInSeconds)
         {
-            IEnumerable<Parameter> procedureParametersOut = (IEnumerable<Parameter>)null;
+            IEnumerable<SQLParameter> procedureParametersOut = (IEnumerable<SQLParameter>)null;
             return this.ExecuteSqlProcedureTable(procedureName, ref procedureParametersOut, procedureParameters, timeoutInSeconds);
         }
-        public DataTable ExecuteSqlProcedureTable(string procedureName, ref IEnumerable<Parameter> procedureParametersOut, IEnumerable<Parameter> procedureParameters, int? timeoutInSeconds)
+        public DataTable ExecuteSqlProcedureTable(string procedureName, ref IEnumerable<SQLParameter> procedureParametersOut, IEnumerable<SQLParameter> procedureParameters, int? timeoutInSeconds)
         {
             if (string.IsNullOrWhiteSpace(procedureName))
                 throw new ArgumentNullException(nameof(procedureName));
@@ -57,7 +57,7 @@ namespace SQLService
                     SqlCommandBuilder.DeriveParameters(command);
                     if (procedureParameters != null)
                     {
-                        foreach (Parameter procedureParameter in procedureParameters)
+                        foreach (SQLParameter procedureParameter in procedureParameters)
                         {
                             if (procedureParameter.Value == null)
                                 command.Parameters[procedureParameter.Name].Value = (object)DBNull.Value;
@@ -67,7 +67,7 @@ namespace SQLService
                     }
                     if (procedureParametersOut != null)
                     {
-                        foreach (Parameter parameter in procedureParametersOut)
+                        foreach (SQLParameter parameter in procedureParametersOut)
                         {
                             if (parameter.Value == null)
                                 command.Parameters[parameter.Name].Value = (object)DBNull.Value;
@@ -86,7 +86,7 @@ namespace SQLService
                         sqlDataAdapter.Fill(dataTable);
                     if (procedureParametersOut != null)
                     {
-                        foreach (Parameter parameter in procedureParametersOut)
+                        foreach (SQLParameter parameter in procedureParametersOut)
                         {
                             if (command.Parameters.Contains(parameter.Name))
                                 parameter.Value = command.Parameters[parameter.Name].Value;
@@ -96,7 +96,7 @@ namespace SQLService
             }
             return dataTable;
         }
-        public Dictionary<int, string> ExecuteSqlProcedureDictionary(string procedureName, IEnumerable<Parameter> procedureParameters, int? timeoutInSeconds)
+        public Dictionary<int, string> ExecuteSqlProcedureDictionary(string procedureName, IEnumerable<SQLParameter> procedureParameters, int? timeoutInSeconds)
         {
             DataTable dataTable = this.ExecuteSqlProcedureTable(procedureName, procedureParameters, timeoutInSeconds);
             Dictionary<int, string> dictionary = new Dictionary<int, string>();
@@ -104,7 +104,7 @@ namespace SQLService
                 dictionary.Add(int.Parse(row[0].ToString()), row[1].ToString());
             return dictionary;
         }
-        public Dictionary<int, string> ExecuteSqlProcedureDictionary(string procedureName, IEnumerable<Parameter> procedureParameters = null)
+        public Dictionary<int, string> ExecuteSqlProcedureDictionary(string procedureName, IEnumerable<SQLParameter> procedureParameters = null)
         {
             DataTable dataTable = this.ExecuteSqlProcedureTable(procedureName, procedureParameters, null);
             Dictionary<int, string> dictionary = new Dictionary<int, string>();
@@ -112,22 +112,22 @@ namespace SQLService
                 dictionary.Add(int.Parse(row[0].ToString()), row[1].ToString());
             return dictionary;
         }
-        public int ExecuteModData(string procedureName, out string UserMsg, params Parameter[] procedureParameters)
+        public int ExecuteModData(string procedureName, out string UserMsg, params SQLParameter[] procedureParameters)
         {
-            IEnumerable<Parameter> procedureParametersOut = (IEnumerable<Parameter>)null;
-            return this.ExecuteModData(procedureName, out UserMsg, ref procedureParametersOut, (IEnumerable<Parameter>)procedureParameters, new int?());
+            IEnumerable<SQLParameter> procedureParametersOut = (IEnumerable<SQLParameter>)null;
+            return this.ExecuteModData(procedureName, out UserMsg, ref procedureParametersOut, (IEnumerable<SQLParameter>)procedureParameters, new int?());
         }
-        public int ExecuteModData(string procedureName, out string UserMsg, IEnumerable<Parameter> procedureParameters, int? timeoutInSeconds)
+        public int ExecuteModData(string procedureName, out string UserMsg, IEnumerable<SQLParameter> procedureParameters, int? timeoutInSeconds)
         {
-            IEnumerable<Parameter> procedureParametersOut = (IEnumerable<Parameter>)null;
+            IEnumerable<SQLParameter> procedureParametersOut = (IEnumerable<SQLParameter>)null;
             return this.ExecuteModData(procedureName, out UserMsg, ref procedureParametersOut, procedureParameters, timeoutInSeconds);
         }
-        public int ExecuteModData(string procedureName, out string UserMsg, IEnumerable<Parameter> procedureParameters)
+        public int ExecuteModData(string procedureName, out string UserMsg, IEnumerable<SQLParameter> procedureParameters)
         {
-            IEnumerable<Parameter> procedureParametersOut = (IEnumerable<Parameter>)null;
+            IEnumerable<SQLParameter> procedureParametersOut = (IEnumerable<SQLParameter>)null;
             return this.ExecuteModData(procedureName, out UserMsg, ref procedureParametersOut, procedureParameters,null);
         }
-        public int ExecuteModData(string procedureName, out string UserMsg, ref IEnumerable<Parameter> procedureParametersOut, IEnumerable<Parameter> procedureParameters, int? timeoutInSeconds)
+        public int ExecuteModData(string procedureName, out string UserMsg, ref IEnumerable<SQLParameter> procedureParametersOut, IEnumerable<SQLParameter> procedureParameters, int? timeoutInSeconds)
         {
             if (string.IsNullOrWhiteSpace(procedureName))
                 throw new ArgumentNullException(nameof(procedureName));
@@ -146,7 +146,7 @@ namespace SQLService
                     SqlCommandBuilder.DeriveParameters(command);
                     if (procedureParameters != null)
                     {
-                        foreach (Parameter procedureParameter in procedureParameters)
+                        foreach (SQLParameter procedureParameter in procedureParameters)
                         {
                             if (procedureParameter.Value == null)
                                 command.Parameters[procedureParameter.Name].Value = (object)DBNull.Value;
@@ -156,7 +156,7 @@ namespace SQLService
                     }
                     if (procedureParametersOut != null)
                     {
-                        foreach (Parameter parameter in procedureParametersOut)
+                        foreach (SQLParameter parameter in procedureParametersOut)
                         {
                             if (parameter.Value == null)
                                 command.Parameters[parameter.Name].Value = (object)DBNull.Value;
@@ -183,7 +183,7 @@ namespace SQLService
                         num = (int)command.Parameters["@RETURN_VALUE"].Value;
                     if (procedureParametersOut != null)
                     {
-                        foreach (Parameter parameter in procedureParametersOut)
+                        foreach (SQLParameter parameter in procedureParametersOut)
                         {
                             if (command.Parameters.Contains(parameter.Name))
                                 parameter.Value = command.Parameters[parameter.Name].Value;
@@ -193,7 +193,7 @@ namespace SQLService
             }
             return num;
         }
-        public int ExecuteModData(string procedureName, out string UserMsg, ref IEnumerable<Parameter> procedureParametersOut, IEnumerable<Parameter> procedureParameters)
+        public int ExecuteModData(string procedureName, out string UserMsg, ref IEnumerable<SQLParameter> procedureParametersOut, IEnumerable<SQLParameter> procedureParameters)
         {
             if (string.IsNullOrWhiteSpace(procedureName))
                 throw new ArgumentNullException(nameof(procedureName));
@@ -212,7 +212,7 @@ namespace SQLService
                     SqlCommandBuilder.DeriveParameters(command);
                     if (procedureParameters != null)
                     {
-                        foreach (Parameter procedureParameter in procedureParameters)
+                        foreach (SQLParameter procedureParameter in procedureParameters)
                         {
                             if (procedureParameter.Value == null)
                                 command.Parameters[procedureParameter.Name].Value = (object)DBNull.Value;
@@ -222,7 +222,7 @@ namespace SQLService
                     }
                     if (procedureParametersOut != null)
                     {
-                        foreach (Parameter parameter in procedureParametersOut)
+                        foreach (SQLParameter parameter in procedureParametersOut)
                         {
                             if (parameter.Value == null)
                                 command.Parameters[parameter.Name].Value = (object)DBNull.Value;
@@ -249,7 +249,7 @@ namespace SQLService
                         num = (int)command.Parameters["@return_value"].Value;
                     if (procedureParametersOut != null)
                     {
-                        foreach (Parameter parameter in procedureParametersOut)
+                        foreach (SQLParameter parameter in procedureParametersOut)
                         {
                             if (command.Parameters.Contains(parameter.Name))
                                 parameter.Value = command.Parameters[parameter.Name].Value;
@@ -259,7 +259,7 @@ namespace SQLService
             }
             return num;
         }
-        public DataTable ExecuteModDataTable(string procedureName, out string UserMsg, out int retVal, ref IEnumerable<Parameter> procedureParametersOut, IEnumerable<Parameter> procedureParameters, int? timeoutInSeconds)
+        public DataTable ExecuteModDataTable(string procedureName, out string UserMsg, out int retVal, ref IEnumerable<SQLParameter> procedureParametersOut, IEnumerable<SQLParameter> procedureParameters, int? timeoutInSeconds)
         {
             if (string.IsNullOrWhiteSpace(procedureName))
                 throw new ArgumentNullException(nameof(procedureName));
@@ -279,7 +279,7 @@ namespace SQLService
                     SqlCommandBuilder.DeriveParameters(command);
                     if (procedureParameters != null)
                     {
-                        foreach (Parameter procedureParameter in procedureParameters)
+                        foreach (SQLParameter procedureParameter in procedureParameters)
                         {
                             if (procedureParameter.Value == null)
                                 command.Parameters[procedureParameter.Name].Value = (object)DBNull.Value;
@@ -289,7 +289,7 @@ namespace SQLService
                     }
                     if (procedureParametersOut != null)
                     {
-                        foreach (Parameter parameter in procedureParametersOut)
+                        foreach (SQLParameter parameter in procedureParametersOut)
                         {
                             if (parameter.Value == null)
                                 command.Parameters[parameter.Name].Value = (object)DBNull.Value;
@@ -320,7 +320,7 @@ namespace SQLService
                         retVal = (int)command.Parameters["@RETURN_VALUE"].Value;
                     if (procedureParametersOut != null)
                     {
-                        foreach (Parameter parameter in procedureParametersOut)
+                        foreach (SQLParameter parameter in procedureParametersOut)
                         {
                             if (command.Parameters.Contains(parameter.Name))
                                 parameter.Value = command.Parameters[parameter.Name].Value;
@@ -330,7 +330,7 @@ namespace SQLService
             }
             return dataTable;
         }
-        public DataTable ExecuteModDataTable(string procedureName, ref IEnumerable<Parameter> procedureParametersOut, IEnumerable<Parameter> procedureParameters)
+        public DataTable ExecuteModDataTable(string procedureName, ref IEnumerable<SQLParameter> procedureParametersOut, IEnumerable<SQLParameter> procedureParameters)
         {
             if (string.IsNullOrWhiteSpace(procedureName))
                 throw new ArgumentNullException("procedureName");
@@ -399,7 +399,7 @@ namespace SQLService
             WindowsIdentity userLoginName = WindowsIdentity.GetCurrent();
             if (userLoginName == null)
                 return false;
-            foreach (DataRow row in (InternalDataCollectionBase)this.ExecuteSqlProcedureTable(procedureName, new Parameter[1] {new Parameter("@UserRole", (object) userRole)}).Rows)
+            foreach (DataRow row in (InternalDataCollectionBase)this.ExecuteSqlProcedureTable(procedureName, new SQLParameter[1] {new SQLParameter("@UserRole", (object) userRole)}).Rows)
                 source.Add(row[0].ToString());
 
             WindowsPrincipal principal = new WindowsPrincipal(userLoginName);
@@ -414,7 +414,7 @@ namespace SQLService
                 return false;
 
             var dbo = this.ExecuteSqlProcedureTable(procedureName,
-                new Parameter[1] { new Parameter("@UserRole", (object)userRole) });
+                new SQLParameter[1] { new SQLParameter("@UserRole", (object)userRole) });
 
             foreach (DataRow row in dbo.Rows)
                 source.Add(row[0].ToString());

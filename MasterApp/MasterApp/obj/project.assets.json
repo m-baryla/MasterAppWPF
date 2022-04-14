@@ -131,14 +131,14 @@
           }
         }
       },
-      "Interface/1.0.0": {
+      "BaseClassApp/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "compile": {
-          "bin/placeholder/Interface.dll": {}
+          "bin/placeholder/BaseClassApp.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Interface.dll": {}
+          "bin/placeholder/BaseClassApp.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WPF"
@@ -148,7 +148,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "Interface": "1.0.0"
+          "BaseClassApp": "1.0.0"
         },
         "compile": {
           "bin/placeholder/ModuleLoader.dll": {}
@@ -476,10 +476,10 @@
         "version.txt"
       ]
     },
-    "Interface/1.0.0": {
+    "BaseClassApp/1.0.0": {
       "type": "project",
-      "path": "../../Interface/Interface.csproj",
-      "msbuildProject": "../../Interface/Interface.csproj"
+      "path": "../../BaseClassApp/BaseClassApp.csproj",
+      "msbuildProject": "../../BaseClassApp/BaseClassApp.csproj"
     },
     "ModuleLoader/1.0.0": {
       "type": "project",

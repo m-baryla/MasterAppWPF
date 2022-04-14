@@ -1,10 +1,10 @@
-﻿using System;
+﻿using BaseClassApp.Interface;
+using System;
 using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using Interface;
 
 namespace ModuleLoader
 {

@@ -4,7 +4,7 @@ using System.IO;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
-namespace Interface
+namespace BaseClassApp.Helper
 {
     public static class GetConfigService
     {

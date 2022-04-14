@@ -1,10 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.Configuration;
-using System.IO;
-using System.Reflection;
-using System.Windows;
-using Interface;
-using ModuleLoader;
+﻿using System.Windows;
 
 namespace MasterApp
 {

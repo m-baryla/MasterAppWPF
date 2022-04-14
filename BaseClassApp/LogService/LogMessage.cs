@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Interface
+namespace BaseClassApp.LogService
 {
     public class LogMessage
     {
@@ -23,6 +19,4 @@ namespace Interface
             return $"{Time} - {Message}";
         }
     }
-
-    public enum LogMessageType { Normal, Warning, Error,Info }
 }

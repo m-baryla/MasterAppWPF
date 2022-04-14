@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Input;
 
-namespace Interface
+namespace BaseClassApp
 {
     public class RelayCommandService : ICommand
     {

@@ -12,11 +12,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Interface\Interface.csproj" />
+    <Folder Include="Trigonometry\Model\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Trigonometry\Model\" />
+    <ProjectReference Include="..\BaseClassApp\BaseClassApp.csproj" />
   </ItemGroup>
 
 </Project>

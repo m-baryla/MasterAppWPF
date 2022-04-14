@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
-using App_1.BaseClass;
-using Interface;
+using BaseClassApp;
 
 namespace App_1.Trigonometry.ViewModel
 {

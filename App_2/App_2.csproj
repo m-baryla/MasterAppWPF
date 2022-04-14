@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Interface\Interface.csproj" />
+    <ProjectReference Include="..\BaseClassApp\BaseClassApp.csproj" />
   </ItemGroup>
 
 </Project>

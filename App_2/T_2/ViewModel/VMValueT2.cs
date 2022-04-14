@@ -1,4 +1,4 @@
-﻿using Interface;
+﻿using BaseClassApp.Interface;
 
 namespace App_2.T_2.ViewModel
 {

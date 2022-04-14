@@ -4,9 +4,10 @@ using System.Data;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
-using App_2.BaseClass;
 using App_2.T_1.Model;
-using Interface;
+using BaseClassApp;
+using BaseClassApp.Interface;
+using BaseClassApp.LogService;
 
 namespace App_2.T_1.ViewModel
 {
@@ -58,14 +59,14 @@ namespace App_2.T_1.ViewModel
         public List<string> GetValueT1Model_DataTable_WithParametr(int IntValue)
         {
             List<string> logs = new List<string>();
-            var dt = _sql.ExecuteSqlProcedureTable("[SQL_].[GetValueT1Model_DataTable_WithParametr]", new Parameter("@IntValue", IntValue));
+            var dt = _sql.ExecuteSqlProcedureTable("[SQL_].[GetValueT1Model_DataTable_WithParametr]", new SQLParameter("@IntValue", IntValue));
             foreach (DataRow row in dt.Rows)
                 logs.Add(row["StringValue"].ToString());
             return logs;
         }
         public MValueT1 GetValueT1Model_DataTable_SingleRow(string StringValue)
         {
-            var tb = _sql.ExecuteSqlProcedureTable("[SQL_].[GetValueT1Model_DataTable_SingleRow]", new Parameter("@StringValue", StringValue));
+            var tb = _sql.ExecuteSqlProcedureTable("[SQL_].[GetValueT1Model_DataTable_SingleRow]", new SQLParameter("@StringValue", StringValue));
             if (tb.Rows.Count < 1)
                 return new MValueT1();
             return new MValueT1(tb.Rows[0]);
@@ -79,7 +80,7 @@ namespace App_2.T_1.ViewModel
         public bool ModValueT1Model(string StringValue, MValueT1 item)
         {
             string Msg;
-            List<Parameter> par = new List<Parameter>();
+            List<SQLParameter> par = new List<SQLParameter>();
 
             if (item == null)
             {
@@ -87,9 +88,9 @@ namespace App_2.T_1.ViewModel
                 return false;
             }
 
-            par.Add(new Parameter("@StringValue", StringValue));
-            par.Add(new Parameter("@DateTimeValue", item.DateTimeValue));
-            par.Add(new Parameter("@IntValue", item.IntValue));
+            par.Add(new SQLParameter("@StringValue", StringValue));
+            par.Add(new SQLParameter("@DateTimeValue", item.DateTimeValue));
+            par.Add(new SQLParameter("@IntValue", item.IntValue));
 
             var ret = _sql.ExecuteModData("[SQL_CRUD].[ModValueT1Model]", out Msg, par);
             MessageBox.Show(Msg + ret.ToString());
@@ -98,7 +99,7 @@ namespace App_2.T_1.ViewModel
         public bool ModDeleteValueT1Model(int IntValue, MValueT1 item)
         {
             string Msg;
-            List<Parameter> par = new List<Parameter>();
+            List<SQLParameter> par = new List<SQLParameter>();
 
             if (item == null)
             {
@@ -106,8 +107,8 @@ namespace App_2.T_1.ViewModel
                 return false;
             }
 
-            par.Add(new Parameter("@IntValue", IntValue));
-            par.Add(new Parameter("@StringValue", item.StringValue));
+            par.Add(new SQLParameter("@IntValue", IntValue));
+            par.Add(new SQLParameter("@StringValue", item.StringValue));
 
             var ret = _sql.ExecuteModData("[SQL_CRUD].[ModDeleteValueT1Model]", out Msg, par);
             MessageBox.Show(Msg + ret.ToString());
@@ -116,7 +117,7 @@ namespace App_2.T_1.ViewModel
         public MValueT1[] GetValueT1ModelWithParametr(int IntValue)
         {
             List<MValueT1> list = new List<MValueT1>();
-            var dt = _sql.ExecuteSqlProcedureTable("[SQL_].[GetValueT1ModelWithParametr]", new Parameter("@IntValue", IntValue));
+            var dt = _sql.ExecuteSqlProcedureTable("[SQL_].[GetValueT1ModelWithParametr]", new SQLParameter("@IntValue", IntValue));
             foreach (DataRow row in dt.Rows)
                 list.Add(new MValueT1(row));
             return list.ToArray();
@@ -129,16 +130,16 @@ namespace App_2.T_1.ViewModel
         public void ModValueT1ModelWithOutParametr(string StringValue, MValueT1 item)
         {
             string Msg;
-            List<Parameter> par = new List<Parameter>();
-            List<Parameter> parO = new List<Parameter>();
+            List<SQLParameter> par = new List<SQLParameter>();
+            List<SQLParameter> parO = new List<SQLParameter>();
 
-            par.Add(new Parameter("@StringValue", StringValue));
-            par.Add(new Parameter("@DoubleVaule", item.DoubleVaule));
-            par.Add(new Parameter("@DateTimeValue", item.DateTimeValue));
-            par.Add(new Parameter("@NewRowId", null));
+            par.Add(new SQLParameter("@StringValue", StringValue));
+            par.Add(new SQLParameter("@DoubleVaule", item.DoubleVaule));
+            par.Add(new SQLParameter("@DateTimeValue", item.DateTimeValue));
+            par.Add(new SQLParameter("@NewRowId", null));
 
-            IEnumerable<Parameter> ie = par;
-            IEnumerable<Parameter> ieO = parO;
+            IEnumerable<SQLParameter> ie = par;
+            IEnumerable<SQLParameter> ieO = parO;
 
             var ret = _sql.ExecuteModData("[SQL_CRUD].[ModValueT1ModelWithOutParametr]", out Msg, ref ieO, ie);
             MessageBox.Show(Msg + ret.ToString());
@@ -162,16 +163,16 @@ namespace App_2.T_1.ViewModel
                 AddTable.Rows.Add(row);
             }
 
-            IEnumerable<Parameter> par = new List<Parameter>
+            IEnumerable<SQLParameter> par = new List<SQLParameter>
             {
-                new Parameter("@DateTimeValue", mo.DateTimeValue),
-                new Parameter("@AddTable", AddTable)
+                new SQLParameter("@DateTimeValue", mo.DateTimeValue),
+                new SQLParameter("@AddTable", AddTable)
             };
 
-            IEnumerable<Parameter> parO = new List<Parameter>
+            IEnumerable<SQLParameter> parO = new List<SQLParameter>
             {
-                new Parameter("@UserMsg", null),
-                new Parameter("@ReturnCode", null)
+                new SQLParameter("@UserMsg", null),
+                new SQLParameter("@ReturnCode", null)
             };
 
             var ret = _sql.ExecuteModDataTable("[SQL_CRUD].[ModValueT1ModelAddTable]", ref parO, par);
@@ -188,11 +189,11 @@ namespace App_2.T_1.ViewModel
         public void ModValueT1ModelParameters(string StringValue, DateTime DateTimeValue, float DoubleVaule)
         {
             string Msg;
-            var par = new List<Parameter>
+            var par = new List<SQLParameter>
             {
-                new Parameter("@StringValue", StringValue),
-                new Parameter("@DateTimeValue", DateTimeValue),
-                new Parameter("@DoubleVaule", DoubleVaule),
+                new SQLParameter("@StringValue", StringValue),
+                new SQLParameter("@DateTimeValue", DateTimeValue),
+                new SQLParameter("@DoubleVaule", DoubleVaule),
             };
 
             var ret = _sql.ExecuteModData("[SQL_CRUD].[ModValueT1ModelParameters]", out Msg, par);
@@ -202,14 +203,14 @@ namespace App_2.T_1.ViewModel
         {
             string Msg = null;
 
-            var List = new List<Parameter>();
-            var outList = new List<Parameter>();
+            var List = new List<SQLParameter>();
+            var outList = new List<SQLParameter>();
 
-            List.Add(new Parameter("@IntValue", IntValue));
-            outList.Add(new Parameter("@UserMsg", Msg));
+            List.Add(new SQLParameter("@IntValue", IntValue));
+            outList.Add(new SQLParameter("@UserMsg", Msg));
 
-            IEnumerable<Parameter> ListIE = List;
-            IEnumerable<Parameter> outListIE = outList;
+            IEnumerable<SQLParameter> ListIE = List;
+            IEnumerable<SQLParameter> outListIE = outList;
 
             var dt = _sql.ExecuteSqlProcedureTable("[SQL_].[GetValueT1Model_OneRow]", ref outListIE, ListIE,null);
 
@@ -222,7 +223,7 @@ namespace App_2.T_1.ViewModel
         public bool ModValueT1ModelParametersOneRow(int IntValue, string StringValue)
         {
             string Msg;
-            var ret = _sql.ExecuteModData("[SQL_CRUD].[ModValueT1ModelParametersOneRow]", out Msg, new Parameter("@IntValue", IntValue), new Parameter("@StringValue", StringValue));
+            var ret = _sql.ExecuteModData("[SQL_CRUD].[ModValueT1ModelParametersOneRow]", out Msg, new SQLParameter("@IntValue", IntValue), new SQLParameter("@StringValue", StringValue));
             MessageBox.Show(Msg + ret);
             return ret >= 0;
         }

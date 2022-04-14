@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data;
-using Interface;
+using BaseClassApp;
 
 namespace App_2.T_2.Model
 {
